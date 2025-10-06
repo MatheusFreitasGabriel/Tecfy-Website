@@ -1,0 +1,123 @@
+:root {
+  /*============================================
+  ===================CORES======================
+  ============================================*/
+
+  /* CORES GLOBAIS */
+  --bg-color: #130F1B;
+  --bg-header-color: #FFFFFF;
+  --color-white: #FFFFFF;
+  --color-black: #0C0427;
+  --bg-indicator-white: #f6f6f6;
+  --bg-indicator-black: #24202B;
+
+  /* CORES BOTÕES */
+  --btn-color-left: #1C4EFF;
+  --btn-color-right: #AC24FF;
+
+  /* CORES PRINCIPAIS */
+  --color-blue: #2D9CFF;
+  --color-purple: #9B51E0;
+  --color-pink: #EB5FFF;
+  --color-orange: #FF6A3D;
+  --color-yellow: #F99F0D;
+
+  /* CORES DE TEXTOS */
+  --color-title-white: #FFFFFF;
+  --color-title-black: #0C0427;
+  --color-subtitle: #A997CE;
+  --color-indicator-black: #0C0427;
+  --color-indicator-white: #FFFFFF;
+  --color-text-black: #0C0427;
+  --color-text-white: #FFFFFF;
+  --color-text-gray: #0C0427;
+
+  /* CORES CARDS */
+  --color-bg-card-flow: rgba(12, 4, 39, 0.5);
+  --color-indicator-card-flow: rgba(41, 31, 54, 0.5);
+  --color-bg-plans: rgba(52, 25, 88, 0.3);
+  --color-btn-plans: rgba(255, 255, 255, 0.1);
+  --color-line-plans: #413A4D;
+  --color-star-plans-starter: linear-gradient(135deg, #2D9CFF -2.08%, #7A5CFF 50%, #FF7E55 102.08%);
+  --color-star-plans-pro: linear-gradient(135deg, #F99F0D -2.08%, #5CFF61 50%, #EB5FFF 102.08%);
+  --color-star-plans-ultimate: linear-gradient(135deg, #F90D0D -2.08%, #FF9A5C 50%, #5FE2FF 102.08%);
+  --color-bg-what-we-do: #241C33;
+
+  --bg-footer: linear-gradient(79deg, #9B51E0 0%, #FF6A3D 96.51%);
+
+  /*============================================
+  ===================TIPOGRAFIA=================
+  ============================================*/
+
+  --font-title: "Montserrat", sans-serif;
+  --font-normal: "Schibsted Grotesk", sans-serif;;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semiBold: 600;
+  --font-weight-bold: 700;
+}
+
+/*============================================
+===================CORES======================
+============================================*/
+
+.indicator-gradient {
+  background: linear-gradient(90deg, var(--color-blue) 0.96%, var(--color-purple) 25%, var(--color-pink) 50%, var(--color-orange) 75%, var(--color-yellow) 98.56%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-gradient {
+  background: linear-gradient(90deg, var(--color-blue) 0.96%, var(--color-purple) 25%, var(--color-pink) 50%, var(--color-orange) 75%, var(--color-yellow) 98.56%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*============================================
+===================TIPOGRAFIA=================
+============================================*/
+
+.font-title-white{
+  font-family: var(--font-title);
+  font-weight: var(--font-weight-semiBold);
+  color: var(--color-title-white);
+  text-align: center;
+}
+
+.font-title-black{
+  font-family: var(--font-title);
+  font-weight: var(--font-weight-semiBold);
+  color: var(--color-title-black);
+  text-align: center;
+}
+
+.font-subtitle{
+  font-family: var(--font-normal);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-subtitle);
+  text-align: center;
+}
+
+.font-indicator-title{
+  font-family: var(--font-normal);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+}
+
+.font-indicator-white{
+  font-family: var(--font-normal);
+  font-weight: var(--font-weight-semiBold);
+  color: var(--color-indicator-white);
+  text-align: center;
+}
+
+.font-indicator-black{
+  font-family: var(--font-normal);
+  font-weight: var(--font-weight-semiBold);
+  color: var(--color-indicator-black);
+  text-align: center;
+}
+
+
