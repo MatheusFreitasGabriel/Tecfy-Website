@@ -1,0 +1,90 @@
+.hero-section {
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* MODIFICAÇÃO: Cria o contexto de posicionamento */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section .hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+
+  /* MODIFICAÇÃO: Garante que o conteúdo fique na camada de cima */
+  position: relative;
+  z-index: 2;
+}
+
+/* NOVO CÓDIGO PARA O VÍDEO DE FUNDO */
+.hero-section .hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-section .hero-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+/* FIM DO NOVO CÓDIGO */
+
+
+.hero-section .hero-content h2{
+  font-size: 1.25rem;
+}
+
+.hero-section .hero-content h1{
+  font-size: 2rem;
+}
+
+.hero-section .hero-content p{
+  font-size: 1.25rem;
+  padding: 0px 32px;
+}
+
+/* Media query para tablet */
+
+@media (min-width: 768px){
+  .hero-section .hero-content{
+    gap: 1.5rem;
+    padding: 1.5rem 8rem;
+  }
+
+  .hero-section .hero-content h2{
+    font-size: 1.6rem;
+  }
+
+  .hero-section .hero-content h1{
+    font-size: 2rem;
+  }
+
+  .hero-section .hero-content p{
+    width: 50%;
+    font-size: 1.25rem;
+  }
+}
+
+/* Media query para desktop */
+
+@media (min-width: 1024px){
+  .hero-section .hero-background video{
+    object-position: calc(50% - 0.75rem) 50%;
+  }
+  .hero-section .hero-content h1{
+    font-size: 3rem;
+  }
+}
