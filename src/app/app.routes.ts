@@ -17,7 +17,7 @@ export const routes: Routes = [
   },
   {
     path: 'about-us',
-    title: 'Sobre Nós',
+    title: 'Quem Somos',
     loadComponent: () =>
       import('./features/about-us/about-us').then(
         (c) => c.AboutUs
@@ -33,7 +33,7 @@ export const routes: Routes = [
   },
   {
     path: 'contact',
-    title: 'Contato',
+    title: 'Crie seu projeto',
     loadComponent: () =>
       import('./features/contact/contact').then(
         (c) => c.Contact

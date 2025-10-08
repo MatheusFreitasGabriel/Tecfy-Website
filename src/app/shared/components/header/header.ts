@@ -17,4 +17,10 @@ export class Header {
   redirectToHome(){
     this.router.navigate(['/']);
   }
+
+  isMenuOpen: boolean = false;
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
