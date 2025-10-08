@@ -1,3 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 @import './styles/_reset.css';
 @import './styles/_variables.css';
+
+body{
+  background-color: var(--bg-color);
+}
+
+::selection{
+  background-color: var(--color-purple);
+  color: white;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+  background: #241C33;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-purple), var(--color-orange));
+  border-radius: 10px;
+  border: 2px solid #241C33; /* Cria um preenchimento ao redor do gradiente */
+}
+/* Efeito opcional ao passar o mouse por cima */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #b983ff, #ff8c66); /* Versão um pouco mais clara do gradiente */
+}
+
+html {
+  scrollbar-width: thin; /* Pode ser 'auto', 'thin' ou 'none' */
+  scrollbar-color: #9B51E0 #241C33; /* Cor do seletor / Cor do fundo */
+}
