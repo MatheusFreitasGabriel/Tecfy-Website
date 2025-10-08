@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
   styleUrl: './header.css'
 })
 export class Header {
+
   constructor(private router: Router) {}
 
   redirectToContact(){
@@ -22,5 +23,19 @@ export class Header {
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  isScrolled: boolean = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+    // Ativa a classe se o scroll for maior que 10px (um valor pequeno para o efeito começar logo)
+    if (scrollPosition > 10) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
   }
 }
