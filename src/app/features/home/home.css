@@ -45,15 +45,20 @@
 
 .hero-section .hero-content h2{
   font-size: 1.25rem;
+
+  animation: fadeDown 1s;
 }
 
 .hero-section .hero-content h1{
   font-size: 2rem;
+
+  animation: fadeDown 1.1s;
 }
 
 .hero-section .hero-content p{
   font-size: 1.25rem;
   padding: 0px 32px;
+  animation: fadeDown 1.2s;
 }
 
 /* Media query para tablet */
@@ -86,5 +91,16 @@
   }
   .hero-section .hero-content h1{
     font-size: 3rem;
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-64px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
   }
 }
