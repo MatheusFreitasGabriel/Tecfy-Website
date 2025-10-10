@@ -9,7 +9,7 @@ export const routes: Routes = [
   // Rota da Home
   {
     path: 'home',
-    title: 'Página Inicial', // Opcional: define o título da aba do navegador
+    title: 'Página Inicial | Tecfy', // Opcional: define o título da aba do navegador
     loadComponent: () =>
       import('./features/home/home').then(
         (c) => c.Home
@@ -17,7 +17,7 @@ export const routes: Routes = [
   },
   {
     path: 'about-us',
-    title: 'Quem Somos',
+    title: 'Quem Somos | Tecfy',
     loadComponent: () =>
       import('./features/about-us/about-us').then(
         (c) => c.AboutUs
@@ -25,7 +25,7 @@ export const routes: Routes = [
   },
   {
     path: 'what-we-do',
-    title: 'O Que Fazemos',
+    title: 'O Que Fazemos | Tecfy',
     loadComponent: () =>
       import('./features/what-we-do/what-we-do').then(
         (c) => c.WhatWeDo
@@ -33,7 +33,7 @@ export const routes: Routes = [
   },
   {
     path: 'contact',
-    title: 'Crie seu projeto',
+    title: 'Crie seu projeto | Tecfy',
     loadComponent: () =>
       import('./features/contact/contact').then(
         (c) => c.Contact
@@ -41,7 +41,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    title: 'Página não encontrada',
+    title: 'Página não encontrada | Tecfy',
     loadComponent: () =>
       import('./features/not-found/not-found').then( // Sugestão: crie um componente para 404
         (c) => c.NotFound

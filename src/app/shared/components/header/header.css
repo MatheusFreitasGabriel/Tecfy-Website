@@ -100,7 +100,7 @@ header nav button {
   margin: 3px;
   background: var(--color-black);
   border-radius: 1px;
-  transition: all 0.3s ease-in;
+  transition: height 0.3s ease-in;
 }
 
 header nav .nav-top {
@@ -112,12 +112,12 @@ header nav .nav-top {
 
 /* --- ESTILOS DO MENU ABERTO (.menu-open) --- */
 header nav.menu-open {
-  height: 36.5vh;
+  height: 45vh;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   gap: 16px;
-  padding: 8px 24px 8px 24px;
+  padding: 8px 24px 24px 24px;
 }
 
 header nav.menu-open .nav-top {
