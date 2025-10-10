@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import {AboutUs} from './features/about-us/about-us';
 
 export const routes: Routes = [
   {
@@ -19,7 +18,10 @@ export const routes: Routes = [
   {
     path: 'about-us',
     title: 'Quem Somos | Tecfy',
-    component: AboutUs,
+    loadComponent: () =>
+      import('./features/about-us/about-us').then(
+        (c) => c.AboutUs
+      ),
   },
   {
     path: 'what-we-do',

@@ -1,9 +1,14 @@
 import {Component, HostListener} from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, RouterLink, RouterLinkActive} from '@angular/router';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [
+    RouterLinkActive,
+    RouterLink,
+    NgOptimizedImage
+  ],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
@@ -16,7 +21,15 @@ export class Header {
   }
 
   redirectToHome(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
+  }
+
+  redirectToAboutUs(){
+    this.router.navigate(['/about-us']);
+  }
+
+  redirectToWhatWeDo(){
+    this.router.navigate(['/what-we-do']);
   }
 
   isMenuOpen: boolean = false;
