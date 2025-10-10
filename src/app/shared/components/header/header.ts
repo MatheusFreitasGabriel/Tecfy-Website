@@ -18,13 +18,13 @@ export class Header {
 
   redirectToContact(){
     this.router.navigate(['/contact']);
-    this.toggleMenu()
+    this.isMenuOpen = false;
   }
 
   redirectToHome(){
     this.router.navigate(['/home']);
     if(this.isMenuOpen == true){
-      this.toggleMenu()
+      this.isMenuOpen = false;
     }
   }
 
