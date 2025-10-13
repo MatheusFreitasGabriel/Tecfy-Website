@@ -18,7 +18,7 @@ section .flow-text{
   animation: fadeDown 1s;
 }
 section .flow-text h1{
-  font-size: 1.60rem;
+  font-size: 1.6rem;
 }
 
 .card-container{
@@ -36,7 +36,7 @@ section .flow-text h1{
   opacity: 0;
   min-width: 300px;
   max-width: 300px;
-  height: 400px;
+  height: 300px;
   padding: 24px;
   background-color:#0C042780;
   border-radius: 24px;
@@ -54,15 +54,21 @@ section .flow-text h1{
   flex-direction: row;
   gap: 6px;
   align-items: center;
+  justify-content: center;
   background-color: #291F3680;
   border-radius: 100px;
 }
 
 .card-indicator h3{
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-family: var(--font-normal);
   font-weight: var(--font-weight-semiBold);
   color: var(--color-text-white);
+}
+
+.card-indicator svg{
+  width: 32px;
+  height: 32px;
 }
 
 .card-content{
@@ -73,7 +79,7 @@ section .flow-text h1{
 }
 
 .card-content h1{
-  font-size: 1.5rem;
+  font-size: 20px;
   font-family: var(--font-normal);
   font-weight: var(--font-weight-semiBold);
   color: var(--color-text-white);
@@ -90,14 +96,19 @@ section .flow-text h1{
   display: flex;
   flex-direction: row;
   gap: 10px;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .card-content  .list-dots .item-dot p {
-  font-size: 1rem ;
+  font-size: 14px ;
   font-family: var(--font-normal);
   font-weight: var(--font-weight-regular);
   color: rgba(255, 255, 255, 0.8);
+}
+
+.card-content  .list-dots .item-dot svg{
+  width: 16px;
+  height: 16px;
 }
 
 .icon-wrapper{
@@ -127,6 +138,23 @@ section .flow-text h1{
 
   section .flow-text h1{
     font-size: 3rem;
+  }
+
+  .card{
+    height: 400px;
+  }
+
+  .card-content h1{
+    font-size: 1.6rem;
+  }
+
+  .card-content  .list-dots .item-dot p{
+    font-size: 1rem;
+  }
+
+  .card-content  .list-dots .item-dot svg{
+    width: 20px;
+    height: 20px;
   }
 
 }
