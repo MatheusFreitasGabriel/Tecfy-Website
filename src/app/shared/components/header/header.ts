@@ -22,7 +22,7 @@ export class Header {
   }
 
   redirectToHome(){
-    this.router.navigate(['/home']);
+    this.router.navigate(['/']);
     if(this.isMenuOpen == true){
       this.isMenuOpen = false;
     }

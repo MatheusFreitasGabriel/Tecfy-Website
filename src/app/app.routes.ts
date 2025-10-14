@@ -3,12 +3,6 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  // Rota da Home
-  {
-    path: 'home',
     title: 'Página Inicial | Tecfy', // Opcional: define o título da aba do navegador
     loadComponent: () =>
       import('./features/home/home').then(
