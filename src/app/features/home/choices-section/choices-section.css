@@ -108,6 +108,13 @@ h1 {
   .comparsion p{
     font-size: 16px;
   }
+  .choices-comparsion{
+    gap: 128px;
+  }
+
+  .choices-comparsion img{
+    display: block;
+  }
 }
 
 @media (min-width: 1440px) {
