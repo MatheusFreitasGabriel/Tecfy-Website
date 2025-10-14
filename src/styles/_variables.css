@@ -27,10 +27,10 @@
   --color-title-black: #0C0427;
   --color-subtitle: #A997CE;
   --color-indicator-black: #0C0427;
-  --color-indicator-white: #FFFFFF;
+  --color-indicator-white: #F6F6F6;
   --color-text-black: #0C0427;
   --color-text-white: #FFFFFF;
-  --color-text-gray: #0C0427;
+  --color-text-gray: #858CA6;
 
   /* CORES CARDS */
   --color-bg-card-flow: rgba(12, 4, 39, 0.5);
