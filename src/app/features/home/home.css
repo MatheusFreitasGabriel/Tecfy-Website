@@ -77,6 +77,14 @@
   overflow: hidden;
 }
 
+.plans-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+}
+
 .flow-background {
   position: absolute;
   top: 0;
@@ -106,6 +114,19 @@ width: 100%;
   align-items: center;
 }
 
+.plans-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 .choices-section{
   width: 100%;
   padding: 64px 0px;
@@ -113,6 +134,31 @@ width: 100%;
   justify-content: center;
   align-items: center;
   background-color: var(--color-white);
+}
+
+.cases-section{
+  width: 100%;
+  padding: 64px 0;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-white);
+}
+
+.plans-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.plans-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotate(180deg);
 }
 
 /* Media query para tablet */
@@ -139,6 +185,10 @@ width: 100%;
   .flow-section{
     height: 150vh;
   }
+
+  .plans-section{
+    height: 150vh;
+  }
 }
 
 /* Media query para desktop */
@@ -158,10 +208,18 @@ width: 100%;
   .flow-section{
     height: 180vh;
   }
+
+  .plans-section{
+    height: 180vh;
+  }
 }
 
 @media (min-width: 1440px){
   .flow-section{
+    height: 120vh;
+  }
+
+  .plans-section{
     height: 120vh;
   }
 }

@@ -1,0 +1,216 @@
+.plans-content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
+
+}
+.indicator {
+  width: fit-content;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  background-color: var(--color-indicator-white);
+  border-radius: 100px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.indicator p {
+  font-size: 12px;
+  font-weight: var(--font-weight-semiBold);
+  color: var(--color-text-black);
+  font-family: var(--font-title);
+}
+
+.indicator svg {
+  width: 16px;
+  height: 16px;
+}
+
+.text-content{
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.text-content h1{
+  font-size: 1.6rem;
+}
+
+.text-content p{
+  width: 80%;
+  font-size: 1rem;
+  color: #3E3855;
+}
+
+/* AJUSTE 1:
+  O padding do componente principal deve ser o
+  "padding" que você quer para o seu elemento de foco.
+  Mudei de 8px para 4px, como você pediu.
+*/
+.selector {
+  position: relative;
+  width: 80%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 24px auto;
+  padding: 4px; /* <-- MUDADO DE 8px PARA 4px */
+  border-radius: 100px;
+  background-color: transparent;
+  z-index: 0;
+}
+
+/* O seu código ::before está ótimo, não precisa mudar.
+*/
+.selector::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 3px;
+  border-radius: 100px;
+  background: linear-gradient(to right, var(--color-blue), var(--color-purple), var(--color-pink), var(--color-orange), var(--color-yellow));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: subtract;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* AJUSTE 2:
+  Dê aos botões um z-index maior que o do foco
+  para garantir que fiquem por cima.
+*/
+.selector-buttons {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-left: 4px;
+  padding-right: 2px;
+  gap: 0px;
+}
+
+/* Seu código .selector-buttons button está ótimo.
+*/
+.selector-buttons button {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 100px;
+  font-size: 1rem ;
+  font-family: var(--font-normal);
+  font-weight: var(--font-weight-semiBold);
+  color: var(--color-text-black);
+  transition: color 0.3s ease;
+}
+
+.selector-buttons button.active{
+  color: white;
+}
+
+
+/* AJUSTE 3 (A GRANDE MUDANÇA):
+  Corrigimos o .selector-focus.
+*/
+.selector-focus {
+  position: absolute;
+
+  /* 1. Posição inicial:
+    Ele deve começar no 'top: 4px' e 'left: 4px'
+    que são definidos pelo 'padding: 4px' do pai.
+  */
+  top: 8px;
+  left: 8px;
+  right: 8px;
+
+  /* 2. Tamanho:
+    'bottom: 4px' define a altura (altura do pai - 4px - 4px).
+    'width' calcula a metade do espaço MENOS metade do 'gap' dos botões.
+  */
+  bottom: 8px;
+  width: calc(50% - 6px); /* 50% da largura - 2px (metade do gap de 4px) */
+
+  /* 3. REMOVIDOS:
+    'right: 4px;' e 'height: 90%;' estavam causando o conflito.
+  */
+
+  background-color: #0C0427;
+  border-radius: 99px;
+  z-index: 1; /* Atrás dos botões (que são z-index: 2) */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* AJUSTE 4:
+  A animação precisa mover 100% do tamanho do foco
+  MAIS o 'gap' de 4px que existe entre os botões.
+*/
+.selector.move-right .selector-focus {
+  /* Move 100% da própria largura (calc(50% - 2px))
+    MAIS os 4px do 'gap' dos botões.
+  */
+  transform: translateX(calc(100% + -4px));
+}
+
+@media (min-width: 1024px) {
+  .text-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .text-content p{
+    font-size: 1.25rem;
+    width: 60%;
+  }
+
+  /* Alinhar o seletor com a largura do texto no desktop */
+  .selector {
+    width: 60%;
+    margin-top: 48px;
+  }
+
+  /* Botões maiores no desktop */
+  .selector-buttons button {
+    font-size: 20px;
+  }
+
+  .indicator {
+    padding: 16px 24px;
+    gap: 16px;
+  }
+
+  .indicator p {
+    font-size: 1rem;
+  }
+
+  .indicator svg {
+    width: 22px;
+    height: 22px;
+  }
+
+}
+
+@media (min-width: 1440px) {
+
+  .text-content h1 {
+    font-size: 3rem;
+  }
+
+}

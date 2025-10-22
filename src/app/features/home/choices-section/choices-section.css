@@ -1,10 +1,64 @@
+/* Definição das keyframes para a animação de fade (opacidade 0 para 1)
+   e movimento (50px de baixo para cima) */
+@keyframes fade-down-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px); /* Começa 50px abaixo da posição final */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Termina na posição original */
+  }
+}
+
 .choices-content {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  /* A animação original é removida daqui e aplicada individualmente aos filhos */
 }
+
+/* 1. Oculta todos os elementos filhos inicialmente para que a animação possa fazê-los aparecer */
+.choices-content > * {
+  opacity: 0; /* Garante que os filhos comecem invisíveis */
+  animation: fade-down-up 1s ease-out forwards;
+}
+
+/* 2. Aplicação do Atraso (Delay) Sequencial para a Animação */
+
+/* Indicador (Primeiro elemento) */
+.choices-content > .indicator {
+  animation-delay: 0.1s; /* Inicia bem rápido */
+}
+
+/* Título H1 (Segundo elemento) */
+.choices-content > h1 {
+  animation-delay: 0.3s;
+}
+
+/* Container de Comparação (Terceiro elemento) */
+.choices-content > .choices-comparsion {
+  animation-delay: 0.5s;
+}
+
+/* --- Elementos Internos do Container de Comparação (Opcional: Detalhamento) --- */
+
+/* Se você quiser que as colunas (negative-section e positive-section) também tenham atraso: */
+.choices-comparsion > .negative-section,
+.choices-comparsion > img {
+  animation-delay: 0.7s;
+}
+
+.choices-comparsion > .positive-section {
+  animation-delay: 0.9s;
+}
+
+/* Opcionalmente, você pode querer atrasar ainda mais cada 'comparsion' item
+   dentro das seções, mas o CSS abaixo lida com os elementos principais. */
+
 
 .indicator {
   width: fit-content;
@@ -46,7 +100,9 @@ h1 {
 }
 
 .choices-comparsion img {
-  display: none;
+  /* Garante que a imagem oculta comece invisível e receba o atraso */
+  opacity: 0;
+  display: none; /* Mantém o display: none para mobile */
 }
 
 .negative-section, .positive-section {
@@ -80,6 +136,8 @@ h1 {
 .positive-section .comparsion p{
   color: var(--color-text-black);
 }
+
+/* Media Queries */
 @media (min-width: 1024px) {
   h1 {
     font-size: 2.5rem;
@@ -114,6 +172,7 @@ h1 {
 
   .choices-comparsion img{
     display: block;
+    opacity: 1;
   }
 }
 
