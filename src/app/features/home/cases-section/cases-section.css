@@ -19,6 +19,7 @@
 }
 
 .indicator p {
+
   font-size: 12px;
   font-weight: var(--font-weight-semiBold);
   color: var(--color-text-black);
@@ -39,8 +40,64 @@
   gap: 12px;
 }
 
+.content-text h1{
+  padding: 0px 24px;
+  font-size: 1.6rem;
+}
+
 .content-text p{
-  padding: 0px 64px;
+  width: 40%;
+  padding: 0px 24px;
+}
+
+/* Cases carousel */
+.cases-carousel {
+  width: 100%;
+  overflow: hidden;
+  overflow: clip; /* modern browsers: prevents scrollbars from fractional transforms */
+  margin-top: 48px;
+  contain: layout paint; /* confine painting/layout to prevent bleed */
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: cases-scroll 80s linear infinite;
+  will-change: transform;
+}
+
+.carousel-group {
+  display: flex;
+}
+
+.carousel-group img {
+  flex: 0 0 calc((100% - 120px) / 12); /* 6 images visible with 5 gaps of 24px each (5*24=120) */
+  height: auto;
+  max-width: none; /* ensure flex-basis controls width */
+  object-fit: cover;
+  margin-right: 24px; /* space between images */
+}
+
+/* remove the trailing margin on the last image inside each group so the spacer controls the boundary gap */
+.carousel-group img:last-of-type {
+  margin-right: 0;
+}
+
+/* spacer element to keep a 24px gap between duplicated groups for seamless looping */
+.carousel-spacer {
+  flex: 0 0 24px;
+}
+
+/* Optional: pause on hover for desktop */
+@media (hover: hover) and (pointer: fine) {
+  .cases-carousel:hover .carousel-track {
+    animation-play-state: revert;
+  }
+}
+
+@keyframes cases-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 @media (min-width: 1024px) {

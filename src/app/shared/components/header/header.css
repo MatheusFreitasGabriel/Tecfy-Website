@@ -5,20 +5,23 @@ header {
   width: 100%;
   padding: 16px;
   position: fixed;
-  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* ensure above animated sections */
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Prevent flicker/artifacts when overlapping animated transforms */
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* MELHORIA: Fundo com desfoque quando o menu abrir */
 header::before {
   content: '';
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0; /* Avoid 100vw/100vh overflow on mobile and desktops with scrollbars */
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(4px);
   z-index: 98; /* Fica atrás do nav */
