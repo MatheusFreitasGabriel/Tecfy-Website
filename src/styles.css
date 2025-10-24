@@ -13,10 +13,6 @@ body{
 /* Prevent horizontal overflow from transforms */
 html { overflow-x: clip; }
 
-/* Offset main content for fixed header */
-@media (min-width: 1000px) {
-  main { padding-top: 100px; }
-}
 
 ::selection{
   background-color: var(--color-purple);
