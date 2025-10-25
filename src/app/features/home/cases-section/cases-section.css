@@ -4,6 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  animation: fadeTop 1.5s ease-in-out forwards;
 }
 
 .indicator {
@@ -55,8 +57,12 @@
   width: 100%;
   overflow: hidden;
   overflow: clip; /* modern browsers: prevents scrollbars from fractional transforms */
-  margin-top: 48px;
+  margin-top: 24px;
   contain: layout paint; /* confine painting/layout to prevent bleed */
+}
+
+.carousel-1 {
+  margin-top: 48px;
 }
 
 .carousel-track {
@@ -64,6 +70,12 @@
   width: max-content;
   animation: cases-scroll 80s linear infinite;
   will-change: transform;
+}
+
+/* Make the second carousel move left-to-right without starting mid-sequence */
+.cases-carousel + .cases-carousel .carousel-track {
+  animation-name: cases-scroll-right;
+  animation-direction: normal;
 }
 
 .carousel-group {
@@ -97,7 +109,13 @@
 
 @keyframes cases-scroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-33.3333%); }
+}
+
+/* Rightward scrolling variant to ensure start aligned at left edge */
+@keyframes cases-scroll-right {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(33.3333%); }
 }
 
 @media (min-width: 1024px) {
@@ -131,4 +149,15 @@
     font-size: 3rem;
   }
 
+}
+
+@keyframes fadeTop{
+  0%{
+    opacity: 0;
+    transform: translateY(64px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
