@@ -74,7 +74,8 @@ export class PlansCards {
     "Automação N8N",
     "Software",
     "App Multiplataforma",
-    "Inteligência Artificial"
+    "Inteligência Artificial",
+    "Realidade Virtual",
   ];
 
   redirectToPlan(plano: string){

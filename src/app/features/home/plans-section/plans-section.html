@@ -36,6 +36,12 @@
       </div>
     </div>
 
-    <app-plans-cards></app-plans-cards>
+    @if(selectedPlan === 'monthly'){
+      <app-plans-cards></app-plans-cards>
+    }@else{
+      <app-plans-cards-single></app-plans-cards-single>
+    }
+
+
   </div>
 </main>
