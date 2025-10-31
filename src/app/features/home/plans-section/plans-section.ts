@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import {NgClass} from '@angular/common';
+import {PlansCards} from '../../../shared/components/plans-cards/plans-cards';
 
 @Component({
   selector: 'app-plans-section',
   imports: [
-    NgClass
+    NgClass,
+    PlansCards
   ],
   templateUrl: './plans-section.html',
   styleUrl: './plans-section.css'

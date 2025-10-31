@@ -38,6 +38,8 @@
   justify-content: center;
   align-items: center;
   gap: 12px;
+  width: min(80%, 720px);
+  margin-inline: auto;
 }
 
 .text-content h1{
@@ -45,7 +47,7 @@
 }
 
 .text-content p{
-  width: 80%;
+  width: 100%;
   font-size: 1rem;
   color: #3E3855;
 }
@@ -57,17 +59,21 @@
 */
 .selector {
   position: relative;
-  width: 80%;
+  width: 320px;
+  max-width: 100%;
+  min-width: 0; /* evita overflow em layouts flex */
   height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 0;
   margin: 24px auto;
-  padding: 4px; /* <-- MUDADO DE 8px PARA 4px */
+  padding: 4px;
   border-radius: 100px;
   background-color: transparent;
   z-index: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* O seu código ::before está ótimo, não precisa mudar.
@@ -95,18 +101,21 @@
 .selector-buttons {
   height: 100%;
   width: 100%;
+  min-width: 0; /* permite que o conteúdo encolha dentro do flex */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   padding-left: 4px;
   padding-right: 2px;
   gap: 0px;
+  box-sizing: border-box;
 }
 
 /* Seu código .selector-buttons button está ótimo.
 */
 .selector-buttons button {
   flex: 1;
+  min-width: 0; /* permite encolher mesmo com texto longo */
   height: 100%;
   display: flex;
   justify-content: center;
@@ -121,6 +130,7 @@
   font-weight: var(--font-weight-semiBold);
   color: var(--color-text-black);
   transition: color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .selector-buttons button.active{
@@ -134,24 +144,15 @@
 .selector-focus {
   position: absolute;
 
-  /* 1. Posição inicial:
-    Ele deve começar no 'top: 4px' e 'left: 4px'
-    que são definidos pelo 'padding: 4px' do pai.
-  */
-  top: 8px;
-  left: 8px;
-  right: 8px;
+  /* 1. Posição inicial alinhada ao padding do pai (4px) */
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  right: 6px;
 
-  /* 2. Tamanho:
-    'bottom: 4px' define a altura (altura do pai - 4px - 4px).
-    'width' calcula a metade do espaço MENOS metade do 'gap' dos botões.
-  */
-  bottom: 8px;
-  width: calc(50% - 6px); /* 50% da largura - 2px (metade do gap de 4px) */
 
-  /* 3. REMOVIDOS:
-    'right: 4px;' e 'height: 90%;' estavam causando o conflito.
-  */
+  /* 2. Tamanho: metade da largura disponível */
+  width: calc(50% - 0px);
 
   background-color: #0C0427;
   border-radius: 99px;
@@ -167,7 +168,7 @@
   /* Move 100% da própria largura (calc(50% - 2px))
     MAIS os 4px do 'gap' dos botões.
   */
-  transform: translateX(calc(100% + -4px));
+  transform: translateX(calc(100% + -12px));
 }
 
 @media (min-width: 1024px) {
@@ -177,12 +178,12 @@
 
   .text-content p{
     font-size: 1.25rem;
-    width: 60%;
+    width: 100%;
   }
 
-  /* Alinhar o seletor com a largura do texto no desktop */
+  /* Alinhar o seletor com a largura do texto no desktop (igual ao título) */
   .selector {
-    width: 60%;
+    width: min(80%, 720px);
     margin-top: 48px;
   }
 

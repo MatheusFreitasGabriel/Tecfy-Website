@@ -1,0 +1,163 @@
+<div class="cards-group">
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <h1 class="card-title">Starter</h1>
+        <div class="price">
+          <h1>R$2.500</h1>
+          <h2>/mês</h2>
+        </div>
+        <p class="cancel-plan">
+          Cancele quando quiser, mas o sistema depende do plano ativo.
+        </p>
+        <button class="contact-plan" (click)="redirectToPlan('Starter')">
+          Contratar plano
+        </button>
+      </div>
+
+      <div class="separator-plan">
+        <hr>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.1217 5.87833L16 8L10.1217 10.1217L8 16L5.87833 10.1217L0 8L5.87833 5.87833L8 0Z" fill="url(#paint0_linear_1012_920)"/>
+          <defs>
+            <linearGradient id="paint0_linear_1012_920" x1="-0.333333" y1="-0.333333" x2="16.3333" y2="16.3333" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2D9CFF"/>
+              <stop offset="0.5" stop-color="#7A5CFF"/>
+              <stop offset="1" stop-color="#FF7E55"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <hr>
+      </div>
+
+      <div class="why-plan">
+        <h4>Por que assinar o plano Starter?</h4>
+        @for(item of whyStarter; track $index){
+          <div class="topic">
+            <img ngSrc="assets/icons/icon-check-starter.png" alt="Icones de check de lista" height="16" width="16">
+            <p>{{item}}</p>
+          </div>
+        }
+      </div>
+
+      <div class="whats-plan">
+          <h4>Sistemas à escolher</h4>
+       <div class="whats-plan-topics">
+         @for (item of whatsStarter; track $index) {
+           <div class="whats-plan-topic">
+             {{item}}
+           </div>
+         }
+       </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <h1 class="card-title">Pro</h1>
+        <div class="price">
+          <h1>R$5.000</h1>
+          <h2>/mês</h2>
+        </div>
+        <p class="cancel-plan">
+          Cancele quando quiser, mas o sistema depende do plano ativo.
+        </p>
+        <button class="contact-plan" (click)="redirectToPlan('Pro')">
+          Contratar plano
+        </button>
+      </div>
+
+      <div class="separator-plan">
+        <hr>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.1217 5.87833L16 8L10.1217 10.1217L8 16L5.87833 10.1217L0 8L5.87833 5.87833L8 0Z" fill="url(#paint0_linear_1012_983)"/>
+          <defs>
+            <linearGradient id="paint0_linear_1012_983" x1="-0.333333" y1="-0.333333" x2="16.3333" y2="16.3333" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#F99F0D"/>
+              <stop offset="0.5" stop-color="#5CFF61"/>
+              <stop offset="1" stop-color="#EB5FFF"/>
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <hr>
+      </div>
+
+      <div class="why-plan">
+        <h4>Por que assinar o plano Pro?</h4>
+        @for(item of whyPro; track $index){
+          <div class="topic">
+            <img ngSrc="assets/icons/icon-check-pro.png" alt="Icones de check de lista" height="16" width="16">
+            <p>{{item}}</p>
+          </div>
+        }
+      </div>
+
+      <div class="whats-plan">
+        <h4>Sistemas à escolher</h4>
+        <div class="whats-plan-topics">
+          @for (item of whatsPro; track $index) {
+            <div class="whats-plan-topic">
+              {{item}}
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <h1 class="card-title">Ultimate</h1>
+        <div class="price">
+          <h1>R$12.500</h1>
+          <h2>/mês</h2>
+        </div>
+        <p class="cancel-plan">
+          Cancele quando quiser, mas o sistema depende do plano ativo.
+        </p>
+        <button class="contact-plan" (click)="redirectToPlan('Ultimate')">
+          Contratar plano
+        </button>
+      </div>
+
+      <div class="separator-plan">
+        <hr>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.1217 5.87833L16 8L10.1217 10.1217L8 16L5.87833 10.1217L0 8L5.87833 5.87833L8 0Z" fill="url(#paint0_linear_1012_837)"/>
+          <defs>
+            <linearGradient id="paint0_linear_1012_837" x1="-0.333333" y1="-0.333333" x2="16.3333" y2="16.3333" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#F90D0D"/>
+              <stop offset="0.5" stop-color="#FF9A5C"/>
+              <stop offset="1" stop-color="#5FE2FF"/>
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <hr>
+      </div>
+
+      <div class="why-plan">
+        <h4>Por que assinar o plano Ultimate?</h4>
+        @for(item of whyUltimate; track $index){
+          <div class="topic">
+            <img ngSrc="assets/icons/icon-check-ultimate.png" alt="Icones de check de lista" height="16" width="16">
+            <p>{{item}}</p>
+          </div>
+        }
+      </div>
+
+      <div class="whats-plan">
+        <h4>Sistemas à escolher</h4>
+        <div class="whats-plan-topics">
+          @for (item of whatsUltimate; track $index) {
+            <div class="whats-plan-topic">
+              {{item}}
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
