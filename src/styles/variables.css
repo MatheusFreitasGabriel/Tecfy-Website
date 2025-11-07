@@ -1,0 +1,24 @@
+:root {
+    --color-background: #0A0A0A;
+    --color-background-secondary: #141414;
+
+    --color-border-container: #1F1F1F;
+
+    --color-blue: #59ACFF;
+    --color-white: #FFFFFF;
+    --color-black: #0A0A0A;
+
+    --color-text-white: #FFFFFF;
+    --color-text-black: #0A0A0A;
+    --color-text-secondary: #8C8C8C;
+    --color-text-unfocused: #0A0A0A;
+    --color-text-input-placeholder: #505050;
+
+    --font-size-indicator-lg: 20px;
+    --font-size-indicator-sm: 16px;
+    --font-size-hero-lg: 48px;
+    --font-size-hero-sm: 32px;
+    
+    
+}
+
