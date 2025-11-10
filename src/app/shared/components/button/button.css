@@ -1,0 +1,78 @@
+button {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-btn-sm);
+  padding: 0.375rem 0.75rem;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  background-color: var(--color-white);
+  color: var(--color-text-black);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #CECECE;
+}
+
+.button-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.button-label {
+  display: inline-block;
+}
+
+.button-arrow {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.button-arrow img {
+  width: 17px;
+  height: 13px;
+  display: block;
+}
+
+button.btn-cta {
+  padding: 12px 32px 12px 24px;
+  font-size: 16px;
+}
+
+button.btn-cta .button-content {
+  position: relative;
+}
+
+button.btn-cta .button-arrow {
+  margin-left: 12px;
+  animation: arrowMove 2s ease-in-out infinite;
+}
+
+@keyframes arrowMove {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(26px);
+  }
+}
+
+@media screen and (min-width: 786px) {
+  button {
+    font-size: var(--font-size-btn-sm);
+  }
+  
+  button.btn-cta {
+    font-size: 20px;
+  }
+}
+

@@ -14,11 +14,36 @@
     --color-text-unfocused: #0A0A0A;
     --color-text-input-placeholder: #505050;
 
-    --font-size-indicator-lg: 20px;
-    --font-size-indicator-sm: 16px;
-    --font-size-hero-lg: 48px;
-    --font-size-hero-sm: 32px;
+    --font-size-indicator-lg: 1.25rem;
+    --font-size-indicator-sm: 1rem;
+    --font-size-hero-lg: 3rem;
+    --font-size-hero-sm: 2rem;
+    --font-size-title-lg: 1.5rem;
+    --font-size-title-sm: 1.25rem;
+    --font-size-placeholder: 0.875rem;
+    --font-size-btn-lg: 1.25rem;
+    --font-size-btn-sm: 1rem;
+    --font-size-text-hero-indicator-lg: 1.25rem;
+    --font-size-text-hero-indicator-sm: 1rem;
+    --font-size-text: 1rem;
     
-    
+    --font-family: 'Satoshi', sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+}
+
+.font-hero{
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-hero-sm);
+    color: var(--color-text-white);
+}
+
+@media screen and (max-width: 786px){
+    .font-hero{
+        font-size: var(--font-size-hero-lg);
+    }
 }
 

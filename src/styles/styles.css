@@ -1,2 +1,9 @@
 @import './reset.css';
 @import './variables.css';
+
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-white);
+    font-family: var(--font-family);
+}

@@ -1,0 +1,13 @@
+<button 
+  [disabled]="disabled"
+  [class.btn-cta]="cta">
+  <span class="button-content">
+    <span class="button-label">{{ label }}</span>
+    @if (cta) {
+      <span class="button-arrow">
+        <img src="assets/icons/icon-arrow-btn.svg" alt="Arrow">
+      </span>
+    }
+  </span>
+</button>
+
