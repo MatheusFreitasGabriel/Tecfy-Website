@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-button',
@@ -11,5 +12,14 @@ export class Button {
   @Input() label: string = '';
   @Input() disabled: boolean = false;
   @Input() cta: boolean = false;
+  @Input() routerLink: string = '';
+
+  constructor(private router: Router){}
+
+  handleClick(): void {
+    if (this.routerLink && !this.disabled) {
+      this.router.navigate([this.routerLink]);
+    }
+  }
 }
 

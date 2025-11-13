@@ -1,6 +1,7 @@
 <button 
   [disabled]="disabled"
-  [class.btn-cta]="cta">
+  [class.btn-cta]="cta"
+  (click)="handleClick()">
   <span class="button-content">
     <span class="button-label">{{ label }}</span>
     @if (cta) {
