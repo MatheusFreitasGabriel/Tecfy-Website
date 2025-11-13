@@ -7,3 +7,15 @@ body {
     color: var(--color-text-white);
     font-family: var(--font-family);
 }
+
+/* Para a maioria dos navegadores */
+::selection {
+    background-color: var(--color-blue);
+    color: var(--color-text-white);
+  }
+  
+  /* Para compatibilidade com o Firefox mais antigo */
+  ::-moz-selection {
+    background-color: var(--color-blue);
+    color: var(--color-text-white);
+  }
