@@ -1,0 +1,17 @@
+<div class="depoiments-section">
+    <h1 class="title-section">O que dizem sobre nós</h1>
+    <div class="depoiments">
+        @for (depoimento of depoiment; track $index) {
+            <div class="depoimento">
+                <p>{{depoimento.depoimento}}</p>
+                <div class="people-info">
+                    <img [src]="depoimento.foto" alt="foto" class="picture-people">
+                    <div class="people-info-text">
+                        <p class="name">{{depoimento.nomeCliente}}</p>
+                        <p class="function">{{depoimento.funcaoEmpresa}}</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

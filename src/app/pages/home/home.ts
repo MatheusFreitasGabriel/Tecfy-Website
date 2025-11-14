@@ -1,12 +1,16 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Button } from '../../shared/components/button/button';
 import { TrustedBrands } from "./components/trusted-brands/trusted-brands";
+import { Cases } from './components/cases/cases';
+import { Depoiments } from "./components/depoiments/depoiments";
 
 @Component({
   selector: 'app-home',
   imports: [
     Button,
-    TrustedBrands
+    TrustedBrands,
+    Cases,
+    Depoiments
 ],
   templateUrl: './home.html',
   styleUrl: './home.css',
