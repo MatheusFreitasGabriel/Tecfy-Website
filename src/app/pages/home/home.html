@@ -1,0 +1,24 @@
+<main>
+    <section class="hero-section">
+       <h2 class="indicator-hero-section">Sistemas sob medida</h2>
+       <div class="content-hero-section">
+            <h1 class="font-hero">Transforme ideias em produtos extraordinários com nossa <span class="animated-word">{{ animatedWord }}</span><span class="cursor">|</span></h1>
+            <div class="our_products">
+                <h3>Nossos Produtos</h3>
+                <div class="products">
+                    @for (product of ourProducts; track $index) {
+                        <div class="product">
+                            <span></span>
+                            <h4>{{product}}</h4>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <app-button label="Falar com um especialista" [cta]="true" [routerLink]="'/contato'"></app-button>
+    </section>
+
+    <section>
+        <app-trusted-brands></app-trusted-brands>
+    </section>
+</main>

@@ -1,0 +1,27 @@
+header{
+    position: fixed;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: center;
+    z-index: 99;
+}
+
+header nav{
+    width: 100%;
+    max-width: 1400px;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+}
+
+@media screen and (min-width: 786px) {
+    header nav{
+        padding: 40px 24px;
+    }
+  }
+
+  

@@ -1,1 +1,8 @@
-<p>header works!</p>
+<header>
+    <nav>
+        <a routerLink="/" aria-label="Tecfy - Página Inicial">
+            <img src="assets/visual-identity/tecfy_logo.svg" alt="Logotipo da Tecfy">
+        </a>
+        <app-button label="Criar Projeto" [cta]="false" [routerLink]="'/contato'"></app-button>
+    </nav>
+</header>
