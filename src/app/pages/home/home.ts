@@ -3,6 +3,7 @@ import { Button } from '../../shared/components/button/button';
 import { TrustedBrands } from "./components/trusted-brands/trusted-brands";
 import { Cases } from './components/cases/cases';
 import { Depoiments } from "./components/depoiments/depoiments";
+import { Prices } from "./components/prices/prices";
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,8 @@ import { Depoiments } from "./components/depoiments/depoiments";
     Button,
     TrustedBrands,
     Cases,
-    Depoiments
+    Depoiments,
+    Prices
 ],
   templateUrl: './home.html',
   styleUrl: './home.css',

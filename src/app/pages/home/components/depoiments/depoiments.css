@@ -11,6 +11,8 @@
 }
 
 .title-section{
+    width: 100%;
+    text-align: start;
     font-size: var(--font-size-title-sm);
     font-weight: var(--font-weight-medium);
     color: var(--color-text-white);
@@ -87,6 +89,7 @@
  
     .title-section{
         font-size: var(--font-size-title-lg);
+        text-align: start;
     }
 
     .depoiments{
