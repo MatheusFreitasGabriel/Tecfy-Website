@@ -4,7 +4,6 @@ import { TrustedBrands } from "./components/trusted-brands/trusted-brands";
 import { Cases } from './components/cases/cases';
 import { Depoiments } from "./components/depoiments/depoiments";
 import { Prices } from "./components/prices/prices";
-import { FinalCta } from "./components/final-cta/final-cta";
 import { FaqExamples } from "./components/faq-examples/faq-examples";
 
 @Component({
@@ -15,7 +14,6 @@ import { FaqExamples } from "./components/faq-examples/faq-examples";
     Cases,
     Depoiments,
     Prices,
-    FinalCta,
     FaqExamples
 ],
   templateUrl: './home.html',

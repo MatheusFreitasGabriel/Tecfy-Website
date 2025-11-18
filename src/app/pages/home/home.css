@@ -97,6 +97,22 @@ section{
 
 }
 
+.final-cta{
+    width: 100%;
+    background-color: var(--color-background-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 128px 24px;
+    gap: 24px;
+}
+
+.title-final-cta{
+    font-size: var(--font-size-title-sm);
+    font-weight: var(--font-weight-medium);
+}
+
 
 @media screen and (min-width: 786px) {
     .hero-section{
@@ -117,5 +133,13 @@ section{
 
     .product h4{
         font-size: 16px;
+    }
+
+    .final-cta{
+        gap: 48px;
+    }
+
+    .title-final-cta{
+        font-size: 64px;
     }
 }
