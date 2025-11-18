@@ -1,0 +1,125 @@
+.faq-section{
+    width: 100%;
+    max-width: 1400px;
+    height: fit-content;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.content-texts{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.title-section{
+    width: 100%;
+    font-size: var(--font-size-title-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-white);
+    text-align: start;
+}
+
+.content-texts p {
+    font-size: 16px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+}
+
+.question-response {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.question-response p{
+    color: var(--color-text-white);
+    font-weight: var(--font-weight-regular );
+}
+
+.question-response p span{
+    color: var(--color-blue);
+}
+
+.faqs-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.acordeon{
+    padding: 16px;
+    background-color: var(--color-background-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--color-border-container);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.acordeon .question-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    font-size: 16px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-white);
+}
+
+.acordeon .question-line img{
+    width: 12px;
+    transition: transform 0.3s ease;
+}
+
+.acordeon .question-line img.rotated{
+    transform: rotate(180deg);
+}
+
+.acordeon .response{
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+
+}
+
+.acordeon .response.open{
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 24px;
+}
+
+@media screen and (min-width: 480px) {
+    
+}
+
+@media screen and (min-width: 786px) {
+    .faq-section{
+        margin-top: 80px;
+        gap: 24px;
+        flex-direction: row;
+    }
+ 
+    .title-section{
+        font-size: var(--font-size-title-lg);
+    }
+
+    .acordeon{
+        padding: 38px;
+    }
+
+    .acordeon .question-line img{
+        width: 16px;
+    }
+
+    
+}

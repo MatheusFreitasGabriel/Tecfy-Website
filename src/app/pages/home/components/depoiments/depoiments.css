@@ -89,7 +89,7 @@
  
     .title-section{
         font-size: var(--font-size-title-lg);
-        text-align: start;
+        text-align: center;
     }
 
     .depoiments{

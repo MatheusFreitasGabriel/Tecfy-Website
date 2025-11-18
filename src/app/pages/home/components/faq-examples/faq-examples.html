@@ -1,0 +1,21 @@
+<div class="faq-section">
+    <div class="content-texts">
+        <h2 class="title-section">FAQs</h2>
+        <p>As dúvidas frequentes que nossos clientes têm sobre os serviços da TECFY.</p>
+        <div class="question-response">
+            <p><span>+</span>100</p>
+            <p>Perguntas respondidas</p>
+        </div>
+    </div>
+    <div class="faqs-group">
+        @for (ask of faq; track $index) {
+            <div class="acordeon" (click)="toggleAccordion($index)">
+                <div class="question-line">
+                    <p>{{ask.question}}</p>
+                    <img src="assets\icons\icon-arrow-acordeon.svg" alt="Icone de seta para baixo" [class.rotated]="isOpen($index)">
+                </div>
+                <p class="response" [class.open]="isOpen($index)">{{ask.response}}</p>
+            </div>
+        }
+    </div>
+</div>

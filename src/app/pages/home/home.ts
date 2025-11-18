@@ -4,6 +4,8 @@ import { TrustedBrands } from "./components/trusted-brands/trusted-brands";
 import { Cases } from './components/cases/cases';
 import { Depoiments } from "./components/depoiments/depoiments";
 import { Prices } from "./components/prices/prices";
+import { FinalCta } from "./components/final-cta/final-cta";
+import { FaqExamples } from "./components/faq-examples/faq-examples";
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,9 @@ import { Prices } from "./components/prices/prices";
     TrustedBrands,
     Cases,
     Depoiments,
-    Prices
+    Prices,
+    FinalCta,
+    FaqExamples
 ],
   templateUrl: './home.html',
   styleUrl: './home.css',
