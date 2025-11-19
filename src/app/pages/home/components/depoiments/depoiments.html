@@ -3,7 +3,7 @@
     <div class="depoiments">
         @for (depoimento of depoiment; track $index) {
             <div class="depoimento">
-                <p>{{depoimento.depoimento}}</p>
+                <p>"{{depoimento.depoimento}}"</p>
                 <div class="people-info">
                     <img [src]="depoimento.foto" alt="foto" class="picture-people">
                     <div class="people-info-text">

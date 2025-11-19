@@ -1,1 +1,33 @@
-<p>contato works!</p>
+<main>
+    <section>
+        <div class="div-form">
+            <div class="form-titles">
+                <h1>Seja bem vindo a tecfy</h1>
+                <h2>Transforme sua ideia em software</h2>
+            </div>
+    
+            <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()">
+                <div class="input-group">
+                    <label for="nome">Nome<span class="mandatory"> *</span></label>
+                    <input type="text" id="nome" formControlName="nome" placeholder="Seu nome completo">
+                </div>
+        
+                <div class="input-group">
+                    <label for="email">Email<span class="mandatory"> *</span></label>
+                    <input type="email" id="email" formControlName="email" placeholder="Seu endereço de email">
+                </div>
+        
+                <div class="input-group">
+                    <label for="telefone">Telefone<span class="optional"> - opcional</span></label>
+                    <input type="tel" id="telefone" formControlName="telefone" placeholder="Seu telefone">
+                </div>
+        
+                <button type="submit" [disabled]="!contatoForm.valid">Solicitar contato</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="policies">
+        <p><a routerLink="/termos-de-uso">Termos de Uso</a> e <a routerLink="/politica-de-privacidade">Política de Privacidade</a></p>
+    </div>
+</main>
