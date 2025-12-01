@@ -21,8 +21,20 @@
                     <label for="telefone">Telefone<span class="optional"> - opcional</span></label>
                     <input type="tel" id="telefone" formControlName="telefone" placeholder="Seu telefone">
                 </div>
+
+                @if (feedbackMessage) {
+                    <div [class]="feedbackType === 'success' ? 'alert-success' : 'alert-error'">
+                      {{ feedbackMessage }}
+                    </div>
+                  }
         
-                <button type="submit" [disabled]="!contatoForm.valid">Solicitar contato</button>
+                <button type="submit" [disabled]="contatoForm.invalid || isLoading">
+                    @if (isLoading) {
+                      <span>Enviando dados...</span>
+                    } @else {
+                      <span>Solicitar contato</span>
+                    }
+                </button>
             </form>
         </div>
     </section>

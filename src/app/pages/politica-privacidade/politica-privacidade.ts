@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './politica-privacidade.css',
 })
 export class PoliticaPrivacidade {
+  title: string = "Política de Privacidade";
+  lastUpdateDate: string = "27 de Nov, 2025";
+  
 
 }
