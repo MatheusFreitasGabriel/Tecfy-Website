@@ -12,10 +12,6 @@ export class LeadService {
     create(lead: leadRequest){
         const url = `${API_CONFIG.baseUrl}/lead`
 
-        const headers = new HttpHeaders({
-            'Content-Type': 'application/json'
-        });
-
-        return this.http.post<leadResponse>(url, lead, );
+        return this.http.post<leadResponse>(url, lead);
     }
 }

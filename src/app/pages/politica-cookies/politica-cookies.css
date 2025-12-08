@@ -1,0 +1,192 @@
+/* =========================================
+   LAYOUT PRINCIPAL
+   ========================================= */
+main {
+  width: 100%;
+  padding: 128px 0; /* Padding vertical apenas */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  width: 100%;
+  max-width: 800px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* =========================================
+   CABEÇALHO DA PÁGINA (Presentation)
+   ========================================= */
+.apresentation {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.apresentation h1 {
+  font-size: 24px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-white);
+  line-height: 1.2;
+}
+
+.apresentation p {
+  font-size: 16px;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+}
+
+/* =========================================
+   SUMÁRIO (Table of Contents)
+   ========================================= */
+.summary {
+  padding: 24px;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border-container);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.summary > p {
+  font-size: 16px;
+  color: var(--color-text-white);
+  font-weight: var(--font-weight-medium);
+}
+
+.content_summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: start;
+}
+
+.content_summary a {
+  text-decoration: none;
+  color: var(--color-text-white);
+  font-weight: var(--font-weight-regular);
+  transition: color 0.3s ease;
+  font-size: 16px; /* Levemente menor para diferenciar do texto corrido */
+}
+
+.content_summary a:hover {
+  color: var(--color-text-secondary);
+}
+
+/* =========================================
+   TERMOS (Container Principal)
+   ========================================= */
+.term {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  scroll-margin-top: 140px; /* Garante que ao clicar no link, o título não fique escondido no topo */
+}
+
+.term h2 {
+  font-size: 20px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-white);
+}
+
+/* =========================================
+   CONTEÚDO DINÂMICO (::ng-deep)
+   ========================================= */
+
+/* --- Box de Destaque (Announcement) --- */
+:host ::ng-deep .announcement {
+  display: flex;
+  flex-direction: column;
+
+  /* Substitui o SPAN vazio por uma borda real */
+  border-left: 4px solid var(--color-text-secondary);
+  padding-left: 16px; /* Espaço entre a barra e o texto */
+
+  margin: 16px 0;
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* --- Listas Gerais (OL e UL) --- */
+:host ::ng-deep .term ol,
+:host ::ng-deep .term ul {
+  padding-left: 24px; /* Espaço para os marcadores não sumirem */
+}
+
+/* --- Lista de Subtópicos (A, B, C...) --- */
+:host ::ng-deep ol.sub-terms-list {
+  list-style-type: upper-alpha;
+  counter-reset: item;
+}
+
+/* [ATUALIZAÇÃO] Espaçamento entre os itens A, B, C */
+:host ::ng-deep ol.sub-terms-list > li {
+  margin-bottom: 24px; /* Mais espaço entre um bloco e outro */
+}
+
+/* --- Estilo dos Itens de Lista (LI) --- */
+:host ::ng-deep .term li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: var(--color-text-white);
+  padding-left: 4px;
+}
+
+/* [ATUALIZAÇÃO] Títulos dentro da lista (Strong) */
+:host ::ng-deep .term li strong {
+  display: block;
+  margin-bottom: 16px; /* Espaço de 12px a 16px entre o título e o texto */
+  font-size: 1.1rem;
+  color: var(--color-text-white);
+}
+
+/* --- Sub-listas (Bolinhas dentro das letras) --- */
+:host ::ng-deep .term li ul {
+  margin-top: 12px;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+:host ::ng-deep .term li ul li {
+  margin-bottom: 6px;
+  color: var(--color-text-white); /* Texto interno um pouco mais suave */
+}
+
+/* =========================================
+   PARÁGRAFOS (Texto corrido)
+   ========================================= */
+:host ::ng-deep .term p {
+  /* Adiciona o respiro interno de 6px que você pediu */
+  padding-bottom: 6px;
+
+  /* Garante uma margem padrão para separar do próximo bloco */
+  margin-bottom: 2px;
+
+  /* Mantém a leitura agradável */
+  line-height: 1.6;
+  color: var(--color-text-white);
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+@media screen and (min-width: 768px) {
+  .apresentation h1 {
+    font-size: 36px;
+  }
+
+  .term h2 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  main {
+    padding: 256px 0;
+  }
+}
