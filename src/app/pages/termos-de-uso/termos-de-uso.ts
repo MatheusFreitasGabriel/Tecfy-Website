@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NgTemplateOutlet} from "@angular/common";
+import {RouterLink} from '@angular/router';
 
 export type TipoBloco = 'paragrafo' | 'lista' | 'destaque';
 
@@ -28,7 +29,8 @@ export interface Termo {
 @Component({
   selector: 'app-termos-de-uso',
   imports: [
-    NgTemplateOutlet
+    NgTemplateOutlet,
+    RouterLink
   ],
   templateUrl: './termos-de-uso.html',
   styleUrl: './termos-de-uso.css',
@@ -36,6 +38,14 @@ export interface Termo {
 export class TermosDeUso {
   titleSection: string = "Termos de Uso";
   lastUpdateDate: string = "08 de Dez, 2025";
+
+  generateId(text: string): string {
+    return text
+      .toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Remove acentos
+      .replace(/ /g, '-') // Troca espaço por traço
+      .replace(/[^\w-]+/g, ''); // Remove caracteres especiais
+  }
 
   terms: Termo[] = [
     {

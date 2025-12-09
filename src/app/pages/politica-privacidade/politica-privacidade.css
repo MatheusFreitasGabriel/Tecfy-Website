@@ -1,15 +1,16 @@
-/* =========================================
-   LAYOUT PRINCIPAL
-   ========================================= */
 main {
   width: 100%;
-  padding: 128px 0; /* Padding vertical apenas */
+  padding: 128px 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 24px;
 }
 
-section {
+/* Agora aplicamos ao article para garantir largura correta */
+article.policy-content,
+section.apresentation-section { /* Caso use section pro header */
   width: 100%;
   max-width: 800px;
   padding: 0 24px;
@@ -19,12 +20,16 @@ section {
 }
 
 /* =========================================
-   CABEÇALHO DA PÁGINA (Presentation)
+   CABEÇALHO DA PÁGINA (<header class="apresentation">)
    ========================================= */
 .apresentation {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 24px; /* Mantendo alinhamento com o conteúdo */
+  margin: 0 auto; /* Centraliza */
 }
 
 .apresentation h1 {
@@ -41,135 +46,153 @@ section {
 }
 
 /* =========================================
-   SUMÁRIO (Table of Contents)
+   SUMÁRIO (<nav class="summary">)
    ========================================= */
 .summary {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto; /* Centraliza */
   padding: 24px;
+
   background-color: var(--color-background-secondary);
   border: 1px solid var(--color-border-container);
   border-radius: 12px;
+
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.summary > p {
+.summary-title {
   font-size: 16px;
   color: var(--color-text-white);
   font-weight: var(--font-weight-medium);
+  margin: 0;
 }
 
-.content_summary {
+/* A lista UL do sumário */
+ul.content_summary {
   display: flex;
   flex-direction: column;
   gap: 12px;
   text-align: start;
+
+  /* Reset de lista (remove bolinhas e margens padrão) */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.content_summary a {
+.content_summary li a {
   text-decoration: none;
   color: var(--color-text-white);
   font-weight: var(--font-weight-regular);
   transition: color 0.3s ease;
-  font-size: 16px; /* Levemente menor para diferenciar do texto corrido */
+  font-size: 16px;
+  display: block; /* Aumenta a área de clique */
 }
 
-.content_summary a:hover {
+.content_summary li a:hover {
   color: var(--color-text-secondary);
+  text-decoration: underline; /* Ajuda na usabilidade */
 }
 
 /* =========================================
-   TERMOS (Container Principal)
+   TERMOS (<section class="term">)
    ========================================= */
 .term {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  scroll-margin-top: 140px; /* Garante que ao clicar no link, o título não fique escondido no topo */
+
+  /* O PULO DO GATO: Scroll Margin para o Menu Fixo */
+  scroll-margin-top: 140px;
 }
 
 .term h2 {
   font-size: 20px;
   font-weight: var(--font-weight-medium);
   color: var(--color-text-white);
+  margin: 0;
 }
 
 /* =========================================
    CONTEÚDO DINÂMICO (::ng-deep)
    ========================================= */
 
-/* --- Box de Destaque (Announcement) --- */
-:host ::ng-deep .announcement {
+/* --- DESTAQUE (<blockquote class="announcement">) --- */
+:host ::ng-deep blockquote.announcement {
   display: flex;
   flex-direction: column;
 
-  /* Substitui o SPAN vazio por uma borda real */
-  border-left: 4px solid var(--color-text-secondary);
-  padding-left: 16px; /* Espaço entre a barra e o texto */
+  /* Visual */
+  border-left: 4px solid var(--color-blue); /* Use a cor de destaque da marca */
+  background-color: rgba(255, 255, 255, 0.05); /* Leve fundo para destacar */
 
+  padding: 16px;
   margin: 16px 0;
+  border-radius: 0 8px 8px 0;
+
   color: var(--color-text-secondary);
   font-weight: var(--font-weight-medium);
+  font-style: italic;
 }
 
-/* --- Listas Gerais (OL e UL) --- */
+/* Remove margens padrão do parágrafo dentro do blockquote */
+:host ::ng-deep blockquote.announcement p {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Listas Gerais dentro do texto --- */
 :host ::ng-deep .term ol,
 :host ::ng-deep .term ul {
-  padding-left: 24px; /* Espaço para os marcadores não sumirem */
+  padding-left: 24px;
+  margin-bottom: 16px;
 }
 
 /* --- Lista de Subtópicos (A, B, C...) --- */
 :host ::ng-deep ol.sub-terms-list {
   list-style-type: upper-alpha;
   counter-reset: item;
-}
-
-/* [ATUALIZAÇÃO] Espaçamento entre os itens A, B, C */
-:host ::ng-deep ol.sub-terms-list > li {
-  margin-bottom: 24px; /* Mais espaço entre um bloco e outro */
-}
-
-/* --- Estilo dos Itens de Lista (LI) --- */
-:host ::ng-deep .term li {
-  margin-bottom: 12px;
-  line-height: 1.6;
-  color: var(--color-text-white);
-  padding-left: 4px;
-}
-
-/* [ATUALIZAÇÃO] Títulos dentro da lista (Strong) */
-:host ::ng-deep .term li strong {
-  display: block;
-  margin-bottom: 16px; /* Espaço de 12px a 16px entre o título e o texto */
-  font-size: 1.1rem;
-  color: var(--color-text-white);
-}
-
-/* --- Sub-listas (Bolinhas dentro das letras) --- */
-:host ::ng-deep .term li ul {
   margin-top: 12px;
-  padding-left: 20px;
+}
+
+:host ::ng-deep ol.sub-terms-list > li {
+  margin-bottom: 32px; /* Mais espaço entre tópicos grandes */
+}
+
+/* --- Títulos dos Subtópicos (<h3>) --- */
+:host ::ng-deep .term li h3 {
+  display: block;
+  margin: 0 0 16px 0;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-white);
+}
+
+/* --- Sub-listas (Bolinhas) --- */
+:host ::ng-deep .term li ul {
+  margin-top: 8px;
   list-style-type: disc;
+  color: var(--color-text-secondary); /* Bolinha com cor secundária */
 }
 
 :host ::ng-deep .term li ul li {
-  margin-bottom: 6px;
-  color: var(--color-text-white); /* Texto interno um pouco mais suave */
+  margin-bottom: 8px;
+  color: var(--color-text-white); /* Texto branco */
+  padding-left: 4px;
 }
 
 /* =========================================
    PARÁGRAFOS (Texto corrido)
    ========================================= */
 :host ::ng-deep .term p {
-  /* Adiciona o respiro interno de 6px que você pediu */
   padding-bottom: 6px;
-
-  /* Garante uma margem padrão para separar do próximo bloco */
-  margin-bottom: 2px;
-
-  /* Mantém a leitura agradável */
+  margin-bottom: 12px; /* Garante separação real entre parágrafos */
   line-height: 1.6;
   color: var(--color-text-white);
+  font-size: 16px;
 }
 
 /* =========================================
@@ -181,12 +204,12 @@ section {
   }
 
   .term h2 {
-    font-size: 24px;
+    font-size: 28px; /* Aumentei um pouco para desktop */
   }
 }
 
 @media screen and (min-width: 1400px) {
   main {
-    padding: 256px 0;
+    padding: 180px 0; /* Ajustei para não ficar tão gigante, mas pode manter 256px se preferir */
   }
 }

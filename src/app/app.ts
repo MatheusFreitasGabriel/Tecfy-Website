@@ -15,7 +15,9 @@ export class App implements OnInit {
   protected readonly title = signal('Tecfy');
 
   // 1. Injete o Router e o Scroller no construtor
-  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
+  constructor(private router: Router, private viewportScroller: ViewportScroller) {
+    this.viewportScroller.scrollToPosition([0, 100]);
+  }
 
   ngOnInit() {
     // 2. Escuta toda vez que a navegação termina

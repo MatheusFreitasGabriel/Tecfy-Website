@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NgTemplateOutlet} from '@angular/common';
+import {RouterLink} from '@angular/router';
 
 // Tipos de conteúdo possíveis dentro de um termo
 export type TipoBloco = 'paragrafo' | 'lista' | 'destaque';
@@ -29,7 +30,8 @@ export interface Termo {
 @Component({
   selector: 'app-politica-privacidade',
   imports: [
-    NgTemplateOutlet
+    NgTemplateOutlet,
+    RouterLink
   ],
   templateUrl: './politica-privacidade.html',
   styleUrl: './politica-privacidade.css',
@@ -38,6 +40,14 @@ export interface Termo {
 export class PoliticaPrivacidade {
   titleSection: string = "Política de Privacidade";
   lastUpdateDate: string = "27 de Nov, 2025";
+
+  generateId(text: string): string {
+    return text
+      .toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Remove acentos
+      .replace(/ /g, '-') // Troca espaço por traço
+      .replace(/[^\w-]+/g, ''); // Remove caracteres especiais
+  }
 
   terms: Termo[] = [
     {

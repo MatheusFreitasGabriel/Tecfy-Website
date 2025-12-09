@@ -1,21 +1,25 @@
 <main>
-  <section>
-    <div class="apresentation">
-      <h1>{{titleSection}}</h1>
-      <p>Última atualização em {{lastUpdateDate}}.</p>
-    </div>
+  <header class="apresentation">
+    <h1>{{titleSection}}</h1>
+    <p><small>Última atualização em <time>{{lastUpdateDate}}</time>.</small></p>
+  </header>
 
-    <div class="summary">
-      <p>Conteúdo</p>
-      <div class="content_summary">
-        @for (term of terms; track $index) {
-          <a href="#{{term.titulo}}">{{term.titulo}}</a>
-        }
-      </div>
-    </div>
+  <nav class="summary" aria-label="Índice de Conteúdo">
+    <p class="summary-title">Conteúdo</p>
+    <ul class="content_summary">
+      @for (term of terms; track $index) {
+        <li>
+          <a [routerLink]="[]" [fragment]="generateId(term.titulo)">
+            {{term.titulo}}
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
 
+  <article class="policy-content">
     @for (term of terms; track $index) {
-      <div class="term" id="{{term.titulo}}">
+      <section class="term" [id]="generateId(term.titulo)">
         <h2>{{term.titulo}}</h2>
 
         @if (term.conteudoGeral) {
@@ -23,20 +27,18 @@
         }
 
         @if (term.subsecoes) {
-          <ol type="A" class="sub-terms-list">
+          <ol class="sub-terms-list">
             @for (sub of term.subsecoes; track $index) {
               <li>
-                <strong>{{ sub.titulo }}</strong>
-
-                <ng-container *ngTemplateOutlet="contentRenderer; context: {$implicit: sub.conteudo}"></ng-container>
+                <h3>{{ sub.titulo }}</h3> <ng-container *ngTemplateOutlet="contentRenderer; context: {$implicit: sub.conteudo}"></ng-container>
               </li>
             }
           </ol>
         }
-      </div>
+      </section>
     }
+  </article>
 
-  </section>
 </main>
 
 <ng-template #contentRenderer let-blocos>
@@ -55,10 +57,9 @@
     }
 
     @if (bloco.tipo === 'destaque') {
-      <div class="announcement">
+      <blockquote class="announcement">
         <p>{{ bloco.texto }}</p>
-      </div>
+      </blockquote>
     }
   }
 </ng-template>
-
