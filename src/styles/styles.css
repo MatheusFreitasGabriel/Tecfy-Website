@@ -10,7 +10,6 @@ body, html {
   overflow: visible;
   scroll-behavior: smooth;
 }
-
 /* Para a maioria dos navegadores */
 ::selection {
   background-color: var(--color-blue);
