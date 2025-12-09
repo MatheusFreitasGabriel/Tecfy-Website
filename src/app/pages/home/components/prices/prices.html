@@ -1,57 +1,72 @@
 <div class="prices-section">
-    <h2 class="title-section">Planos e Preços</h2>
-    <div class="plans-group">
-        <p class="notice">Nossos planos mensais (Starter, Pro e Ultimate) funcionam como uma assinatura de serviço. A sua mensalidade garante que seu projeto permaneça online, seguro e com suporte. Caso a assinatura seja cancelada, o serviço será interrompido e o sistema desativado. Para projetos com pagamento único e propriedade total, consulte o Plano Equity.</p>
-        <div class="plans">
-            @for (plan of plans; track $index) {
-                <div class="plan">
-                    <div class="header-plan">
-                        <div class="title">
-                            <h3>{{plan.name}}</h3>
-                            @if(plan.recommended){
-                                <h4 class="recommended">Recomendado</h4>
-                            }
-                        </div>
-                            @if (plan.montly) {
-                                <h4 class="price">R${{plan.price}}<span>/mês</span></h4>
-                            }@else{
-                                <h4 class="price">{{plan.price}}</h4>
-                            }
-                    </div>
+  <h2 class="title-section">Planos e Preços</h2>
 
-                    <div class="project-type">
-                        <div class="title-project-type">
-                            <p>Tipo de projeto:</p>
-                        </div>
-                        <ul>
-                            @for (projectType of plan.projectTypes; track $index) {
-                                <li>
-                                    <img src="assets\icons\icon-dot-mark.svg" alt="dot mark">
-                                    <p>{{projectType}}</p>
-                                </li>
-                            }
-                        </ul>
-                    </div>
+  <div class="plans-group">
+    <p class="notice"><small>Nossos planos mensais (Starter, Pro e Ultimate) funcionam como uma assinatura de serviço. A sua mensalidade garante que seu projeto permaneça online, seguro e com suporte. Caso a assinatura seja cancelada, o serviço será interrompido e o sistema desativado. Para projetos com pagamento único e propriedade total, consulte o Plano Equity.</small></p>
 
-                    <div class="project-include">
-                      <div class="title-project-include">
-                        <p>{{plan.titleInclude}}</p>
-                      </div>  
-                      <ul>
-                        @for (include of plan.include; track $index) {
-                            <li>
-                                <img src="assets/icons/icon-check-mark.svg" alt="check mark">
-                                <p>{{include}}</p>
-                            </li>
-                        }
-                      </ul>
-                    </div>
-                    <div class="cta-plan">
-                        <button (click)="goToContato(plan.name)" class="{{plan.recommended ? 'recomendado' : 'nao-recomendado'}}"><p>{{plan.textCta}}</p></button>
-                    </div>
-                    
-                </div>
-            }
-        </div>
+    <div class="plans">
+      @for (plan of plans; track $index) {
+        <article class="plan" [class.recommended-plan]="plan.recommended">
+
+          <div class="header-plan">
+            <div class="title">
+              <h3>{{plan.name}}</h3>
+              @if(plan.recommended){
+                <span class="badge recommended">Recomendado</span>
+              }
+            </div>
+
+            <div class="price-container">
+              @if (plan.montly) {
+                <span class="currency">R$</span>
+                <strong class="price-value">{{plan.price}}</strong>
+                <span class="period">/mês</span>
+              }@else{
+                <strong class="price-value">{{plan.price}}</strong>
+              }
+            </div>
+          </div>
+
+          <div class="project-type">
+            <div class="title-project-type">
+              <strong>Tipo de projeto:</strong>
+            </div>
+            <ul>
+              @for (projectType of plan.projectTypes; track $index) {
+                <li>
+                  <img src="assets/icons/icon-dot-mark.svg" alt="" aria-hidden="true">
+                  <span>{{projectType}}</span>
+                </li>
+              }
+            </ul>
+          </div>
+
+          <div class="project-include">
+            <div class="title-project-include">
+              <strong>{{plan.titleInclude}}</strong>
+            </div>
+            <ul>
+              @for (include of plan.include; track $index) {
+                <li>
+                  <img src="assets/icons/icon-check-mark.svg" alt="" aria-hidden="true">
+                  <span>{{include}}</span>
+                </li>
+              }
+            </ul>
+          </div>
+
+          <div class="cta-plan">
+            <button
+              type="button"
+              (click)="goToContato(plan.name)"
+              class="{{plan.recommended ? 'recomendado' : 'nao-recomendado'}}"
+              [attr.aria-label]="'Contratar plano ' + plan.name">
+              {{plan.textCta}}
+            </button>
+          </div>
+
+        </article>
+      }
     </div>
+  </div>
 </div>

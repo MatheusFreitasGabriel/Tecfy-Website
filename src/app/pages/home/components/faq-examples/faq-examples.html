@@ -1,21 +1,44 @@
-<div class="faq-section">
-    <div class="content-texts">
-        <h2 class="title-section">FAQs</h2>
-        <p>As dúvidas frequentes que nossos clientes têm sobre os serviços da TECFY.</p>
-        <div class="question-response">
-            <p><span>+</span>100</p>
-            <p>Perguntas respondidas</p>
+<div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+
+  <div class="content-texts">
+    <h2 class="title-section">FAQs</h2>
+    <p>As dúvidas frequentes que nossos clientes têm sobre os serviços da TECFY.</p>
+
+    <div class="question-response">
+      <p><span>+</span>100</p>
+      <p>Perguntas respondidas</p>
+    </div>
+  </div>
+
+  <div class="faqs-group">
+    @for (ask of faq; track $index) {
+      <div class="acordeon" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+
+        <button
+          class="question-line"
+          (click)="toggleAccordion($index)"
+          [attr.aria-expanded]="isOpen($index)"
+          [attr.aria-controls]="'faq-content-' + $index">
+
+          <h3 itemprop="name">{{ask.question}}</h3>
+
+          <img
+            src="assets/icons/icon-arrow-acordeon.svg"
+            alt=""
+            aria-hidden="true"
+            [class.rotated]="isOpen($index)">
+        </button>
+
+        <div
+          class="response-container"
+          [class.open]="isOpen($index)"
+          id="faq-content-{{$index}}"
+          itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+
+          <p class="response" itemprop="text">{{ask.response}}</p>
         </div>
-    </div>
-    <div class="faqs-group">
-        @for (ask of faq; track $index) {
-            <div class="acordeon" (click)="toggleAccordion($index)">
-                <div class="question-line">
-                    <p>{{ask.question}}</p>
-                    <img src="assets\icons\icon-arrow-acordeon.svg" alt="Icone de seta para baixo" [class.rotated]="isOpen($index)">
-                </div>
-                <p class="response" [class.open]="isOpen($index)">{{ask.response}}</p>
-            </div>
-        }
-    </div>
+
+      </div>
+    }
+  </div>
 </div>
