@@ -5,7 +5,6 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 72px;
 }
 
 section{
@@ -94,8 +93,24 @@ section{
 .product h4{
     font-size: 14px;
     font-weight: var(--font-weight-medium);
-    color: var(--color-text-primary);
+    color: var(--color-text-white);
 
+}
+
+.final-cta{
+    width: 100%;
+    background-color: var(--color-background-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 128px 24px;
+    gap: 24px;
+}
+
+.title-final-cta{
+    font-size: var(--font-size-title-sm);
+    font-weight: var(--font-weight-medium);
 }
 
 
@@ -118,5 +133,13 @@ section{
 
     .product h4{
         font-size: 16px;
+    }
+
+    .final-cta{
+        gap: 48px;
+    }
+
+    .title-final-cta{
+        font-size: 64px;
     }
 }

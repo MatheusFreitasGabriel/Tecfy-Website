@@ -2,20 +2,22 @@
 @import './variables.css';
 
 
-body {
-    background-color: var(--color-background);
-    color: var(--color-text-white);
-    font-family: var(--font-family);
+body, html {
+  background-color: var(--color-background);
+  color: var(--color-text-white);
+  font-family: var(--font-family);
+  height: auto;
+  overflow: visible;
+  scroll-behavior: smooth;
 }
-
 /* Para a maioria dos navegadores */
 ::selection {
-    background-color: var(--color-blue);
-    color: var(--color-text-white);
-  }
-  
-  /* Para compatibilidade com o Firefox mais antigo */
-  ::-moz-selection {
-    background-color: var(--color-blue);
-    color: var(--color-text-white);
-  }
+  background-color: var(--color-blue);
+  color: var(--color-text-white);
+}
+
+/* Para compatibilidade com o Firefox mais antigo */
+::-moz-selection {
+  background-color: var(--color-blue);
+  color: var(--color-text-white);
+}

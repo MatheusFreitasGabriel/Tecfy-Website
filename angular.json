@@ -21,7 +21,8 @@
                 "input": "public"
               },
               "src/assets",
-              "src/favicon.ico"
+              "src/favicon.ico",
+              "src/robots.txt"
             ],
             "styles": [
               "src/styles/styles.css"
@@ -34,6 +35,9 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {"replace": "src/environments/environment.ts", "with": "src/environments/environment.ts"}
+              ],
               "budgets": [
                 {
                   "type": "initial",

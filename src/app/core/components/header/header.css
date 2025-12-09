@@ -2,10 +2,15 @@ header{
     position: fixed;
     width: 100%;
     height: fit-content;
-    background-color: var(--color-background);
+    background-color: transparent;
     display: flex;
     justify-content: center;
     z-index: 99;
+    transition: background-color 0.3s ease;
+}
+
+header.scrolled{
+    background-color: var(--color-background);
 }
 
 header nav{
@@ -16,6 +21,7 @@ header nav{
     flex-direction: row;
     justify-content: space-between;
     list-style: none;
+    align-items: center;
 }
 
 @media screen and (min-width: 786px) {

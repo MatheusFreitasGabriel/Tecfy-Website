@@ -1,1 +1,65 @@
-<p>politica-privacidade works!</p>
+<main>
+  <header class="apresentation">
+    <h1>{{titleSection}}</h1>
+    <p><small>Última atualização em <time>{{lastUpdateDate}}</time>.</small></p>
+  </header>
+
+  <nav class="summary" aria-label="Índice de Conteúdo">
+    <p class="summary-title">Conteúdo</p>
+    <ul class="content_summary">
+      @for (term of terms; track $index) {
+        <li>
+          <a [routerLink]="[]" [fragment]="generateId(term.titulo)">
+            {{term.titulo}}
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <article class="policy-content">
+    @for (term of terms; track $index) {
+      <section class="term" [id]="generateId(term.titulo)">
+        <h2>{{term.titulo}}</h2>
+
+        @if (term.conteudoGeral) {
+          <ng-container *ngTemplateOutlet="contentRenderer; context: {$implicit: term.conteudoGeral}"></ng-container>
+        }
+
+        @if (term.subsecoes) {
+          <ol class="sub-terms-list">
+            @for (sub of term.subsecoes; track $index) {
+              <li>
+                <h3>{{ sub.titulo }}</h3> <ng-container *ngTemplateOutlet="contentRenderer; context: {$implicit: sub.conteudo}"></ng-container>
+              </li>
+            }
+          </ol>
+        }
+      </section>
+    }
+  </article>
+
+</main>
+
+<ng-template #contentRenderer let-blocos>
+  @for (bloco of blocos; track $index) {
+
+    @if (bloco.tipo === 'paragrafo') {
+      <p>{{ bloco.texto }}</p>
+    }
+
+    @if (bloco.tipo === 'lista') {
+      <ul>
+        @for (item of bloco.itens; track $index) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    }
+
+    @if (bloco.tipo === 'destaque') {
+      <blockquote class="announcement">
+        <p>{{ bloco.texto }}</p>
+      </blockquote>
+    }
+  }
+</ng-template>

@@ -1,0 +1,131 @@
+.depoiments-section {
+  margin-top: 24px;
+  width: 100%;
+  max-width: 1400px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.title-section {
+  width: 100%;
+  text-align: start;
+  font-size: var(--font-size-title-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-white);
+}
+
+.depoiments {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Agora aplicado à tag <figure> */
+.depoimento {
+  padding: 24px;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border-container);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 64px;
+
+  /* Importante: Remove a margem padrão que o navegador coloca na tag <figure> */
+  margin: 0;
+}
+
+/* Novo: Remove margens padrão da tag <blockquote> */
+.quote-text {
+  margin: 0;
+}
+
+/* Estilo do texto do depoimento (dentro do blockquote) */
+.quote-text p {
+  max-height: 112px;
+  text-align: start;
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-white);
+}
+
+/* Agora aplicado à tag <figcaption> */
+.people-info {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.picture-people {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.people-info-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
+}
+
+/* Agora aplicado ao <span> */
+.people-info-text .name {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-white);
+}
+
+/* Agora aplicado à tag <cite> */
+.people-info-text .function {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+
+  /* Importante: Garante que o texto não fique em itálico (padrão do cite) */
+  font-style: normal;
+}
+
+@media screen and (min-width: 480px) {
+  .depoiments {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 786px) {
+  .depoiments-section {
+    margin-top: 80px;
+    gap: 48px;
+  }
+
+  .title-section {
+    font-size: var(--font-size-title-lg);
+    text-align: center;
+  }
+
+  .depoiments {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .quote-text p {
+    font-size: var(--font-size-text);
+  }
+
+  .people-info-text {
+    justify-content: space-around;
+  }
+
+  .people-info-text .name {
+    font-size: var(--font-size-text);
+  }
+
+  .people-info-text .function {
+    font-size: var(--font-size-text);
+  }
+}

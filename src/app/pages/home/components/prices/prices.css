@@ -1,0 +1,229 @@
+.prices-section {
+  margin-top: 24px;
+  width: 100%;
+  max-width: 1400px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.title-section {
+  width: 100%;
+  font-size: var(--font-size-title-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-white);
+  text-align: start;
+}
+
+.plans-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Agora afeta o <small> dentro do parágrafo */
+.notice small {
+  font-size: 10px;
+  color: var(--color-text-secondary);
+  text-align: start;
+  display: block; /* Garante que o small se comporte como bloco de texto */
+}
+
+.plans {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* .plan agora é um <article>, mas a classe continua a mesma */
+.plan {
+  background-color: var(--color-background-secondary);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--color-border-container);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.header-plan .title {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: end;
+}
+
+.header-plan .title h3 {
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-white);
+}
+
+/* Atualizado: Antes era h4, agora é span.badge */
+.header-plan .title .recommended {
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-blue);
+}
+
+/* Novo container para o preço */
+.header-plan .price-container {
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: baseline; /* Alinha o R$ e o /mês na base do número grande */
+  gap: 4px;
+}
+
+/* O valor numérico grande */
+.header-plan .price-value {
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
+}
+
+/* O R$ e o /mês */
+.header-plan .currency,
+.header-plan .period {
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+}
+
+.project-type {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Atualizado: Agora foca no strong */
+.project-type .title-project-type strong {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.project-type ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-type ul li {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Atualizado: Mudado de 'p' para 'span' */
+.project-type ul li span {
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-white);
+}
+
+.project-include {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+/* Atualizado: Agora foca no strong */
+.project-include .title-project-include strong {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.project-include ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-include ul li {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Atualizado: Mudado de 'p' para 'span' */
+.project-include ul li span {
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-white);
+}
+
+.cta-plan {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.cta-plan button {
+  padding: 10px 24px;
+  font-size: 16px;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  background-color: #1F1F1F;
+  border: 1px solid #2D2D2D;
+  color: var(--color-text-white);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%; /* Opcional: garante que o botão ocupe espaço se necessário */
+}
+
+.cta-plan button:hover {
+  background-color: #2D2D2D;
+}
+
+.cta-plan .recomendado {
+  background-color: var(--color-white);
+  color: var(--color-background-secondary);
+}
+
+.cta-plan .recomendado:hover {
+  background-color: #ffffffc4;
+}
+
+/* Media Queries (Mantive os nomes originais) */
+@media screen and (min-width: 480px) {
+  .plans {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 786px) {
+  /* Nota: verifique se .depoiments-section deve estar aqui mesmo ou se foi cópia do outro arquivo */
+  .prices-section {
+    margin-top: 80px;
+    gap: 48px;
+  }
+
+  .title-section {
+    font-size: var(--font-size-title-lg);
+    text-align: center;
+  }
+
+  .notice small {
+    font-size: 14px;
+  }
+
+  .plans {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

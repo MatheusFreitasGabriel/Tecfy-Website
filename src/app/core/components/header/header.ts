@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, signal } from '@angular/core';
 import { Button } from '../../../shared/components/button/button';
 import { RouterLink } from "@angular/router";
 
@@ -9,5 +9,15 @@ import { RouterLink } from "@angular/router";
   styleUrl: './header.css',
 })
 export class Header {
+  private _isScrolled = signal(false);
+  
+  get isScrolled(): boolean {
+    return this._isScrolled();
+  }
 
+  @HostListener('window:scroll')
+  onScroll(): void {
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    this._isScrolled.set(scrollPosition > 50);
+  }
 }

@@ -18,7 +18,7 @@ export class Button {
 
   handleClick(): void {
     if (this.routerLink && !this.disabled) {
-      this.router.navigate([this.routerLink]);
+      this.router.navigate([this.routerLink]).then(() => window.scrollTo(0, 0));
     }
   }
 }

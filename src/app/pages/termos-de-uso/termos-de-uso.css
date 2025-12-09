@@ -1,0 +1,215 @@
+main {
+  width: 100%;
+  padding: 128px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Agora aplicamos ao article para garantir largura correta */
+article.policy-content,
+section.apresentation-section { /* Caso use section pro header */
+  width: 100%;
+  max-width: 800px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* =========================================
+   CABEÇALHO DA PÁGINA (<header class="apresentation">)
+   ========================================= */
+.apresentation {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 24px; /* Mantendo alinhamento com o conteúdo */
+  margin: 0 auto; /* Centraliza */
+}
+
+.apresentation h1 {
+  font-size: 24px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-white);
+  line-height: 1.2;
+}
+
+.apresentation p {
+  font-size: 16px;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+}
+
+/* =========================================
+   SUMÁRIO (<nav class="summary">)
+   ========================================= */
+.summary {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto; /* Centraliza */
+  padding: 24px;
+
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border-container);
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.summary-title {
+  font-size: 16px;
+  color: var(--color-text-white);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+}
+
+/* A lista UL do sumário */
+ul.content_summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: start;
+
+  /* Reset de lista (remove bolinhas e margens padrão) */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content_summary li a {
+  text-decoration: none;
+  color: var(--color-text-white);
+  font-weight: var(--font-weight-regular);
+  transition: color 0.3s ease;
+  font-size: 16px;
+  display: block; /* Aumenta a área de clique */
+}
+
+.content_summary li a:hover {
+  color: var(--color-text-secondary);
+  text-decoration: underline; /* Ajuda na usabilidade */
+}
+
+/* =========================================
+   TERMOS (<section class="term">)
+   ========================================= */
+.term {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  /* O PULO DO GATO: Scroll Margin para o Menu Fixo */
+  scroll-margin-top: 140px;
+}
+
+.term h2 {
+  font-size: 20px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-white);
+  margin: 0;
+}
+
+/* =========================================
+   CONTEÚDO DINÂMICO (::ng-deep)
+   ========================================= */
+
+/* --- DESTAQUE (<blockquote class="announcement">) --- */
+:host ::ng-deep blockquote.announcement {
+  display: flex;
+  flex-direction: column;
+
+  /* Visual */
+  border-left: 4px solid var(--color-blue); /* Use a cor de destaque da marca */
+  background-color: rgba(255, 255, 255, 0.05); /* Leve fundo para destacar */
+
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 0 8px 8px 0;
+
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+  font-style: italic;
+}
+
+/* Remove margens padrão do parágrafo dentro do blockquote */
+:host ::ng-deep blockquote.announcement p {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Listas Gerais dentro do texto --- */
+:host ::ng-deep .term ol,
+:host ::ng-deep .term ul {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+/* --- Lista de Subtópicos (A, B, C...) --- */
+:host ::ng-deep ol.sub-terms-list {
+  list-style-type: upper-alpha;
+  counter-reset: item;
+  margin-top: 12px;
+}
+
+:host ::ng-deep ol.sub-terms-list > li {
+  margin-bottom: 32px; /* Mais espaço entre tópicos grandes */
+}
+
+/* --- Títulos dos Subtópicos (<h3>) --- */
+:host ::ng-deep .term li h3 {
+  display: block;
+  margin: 0 0 16px 0;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-white);
+}
+
+/* --- Sub-listas (Bolinhas) --- */
+:host ::ng-deep .term li ul {
+  margin-top: 8px;
+  list-style-type: disc;
+  color: var(--color-text-secondary); /* Bolinha com cor secundária */
+}
+
+:host ::ng-deep .term li ul li {
+  margin-bottom: 8px;
+  color: var(--color-text-white); /* Texto branco */
+  padding-left: 4px;
+}
+
+/* =========================================
+   PARÁGRAFOS (Texto corrido)
+   ========================================= */
+:host ::ng-deep .term p {
+  padding-bottom: 6px;
+  margin-bottom: 12px; /* Garante separação real entre parágrafos */
+  line-height: 1.6;
+  color: var(--color-text-white);
+  font-size: 16px;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+@media screen and (min-width: 768px) {
+  .apresentation h1 {
+    font-size: 36px;
+  }
+
+  .term h2 {
+    font-size: 28px; /* Aumentei um pouco para desktop */
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  main {
+    padding: 180px 0; /* Ajustei para não ficar tão gigante, mas pode manter 256px se preferir */
+  }
+}

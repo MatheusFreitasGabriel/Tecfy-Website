@@ -1,10 +1,10 @@
 <main>
-    <section class="hero-section">
-       <h2 class="indicator-hero-section">Sistemas sob medida</h2>
+    <section class="hero-section" id="inicio">
+       <h2 class="indicator-hero-section">Sua Software House</h2>
        <div class="content-hero-section">
-            <h1 class="font-hero">Transforme ideias em produtos extraordinários com nossa <span class="animated-word">{{ animatedWord }}</span><span class="cursor">|</span></h1>
+            <h1 class="font-hero">Desenvolvemos seu Site, Software, Aplicativo e IA com nossa <span class="animated-word">{{ animatedWord }}</span><span class="cursor">|</span></h1>
             <div class="our_products">
-                <h3>Nossos Produtos</h3>
+                <h3>Nossos Produtos:</h3>
                 <div class="products">
                     @for (product of ourProducts; track $index) {
                         <div class="product">
@@ -15,10 +15,31 @@
                 </div>
             </div>
         </div>
-        <app-button label="Falar com um especialista" [cta]="true" [routerLink]="'/contato'"></app-button>
+        <app-button label="Falar com um Especialista" [cta]="true" [routerLink]="'/contato'"></app-button>
     </section>
 
     <section>
         <app-trusted-brands></app-trusted-brands>
     </section>
+
+    <section id="portfolio">
+        <app-cases></app-cases>
+    </section>
+
+    <section id="depoimentos">
+        <app-depoiments></app-depoiments>
+    </section>
+
+    <section id="planos">
+        <app-prices></app-prices>
+    </section>
+
+    <section id="faq">
+        <app-faq-examples></app-faq-examples>
+    </section>
+
+    <div class="final-cta">
+        <h2 class="title-final-cta">Construa com a Tecfy</h2>
+        <app-button label="Fale com um especialista" [cta]="true" [routerLink]="'/contato'"></app-button>
+    </div>
 </main>

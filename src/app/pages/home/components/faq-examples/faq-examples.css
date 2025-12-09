@@ -1,0 +1,146 @@
+.faq-section {
+  width: 100%;
+  max-width: 1400px;
+  height: fit-content;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.content-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title-section {
+  width: 100%;
+  font-size: var(--font-size-title-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-white);
+  text-align: start;
+}
+
+.content-texts p {
+  width: 80%;
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+.question-response {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.question-response p {
+  color: var(--color-text-white);
+  font-weight: var(--font-weight-regular);
+}
+
+.question-response p span {
+  color: var(--color-blue);
+}
+
+.faqs-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.acordeon {
+  padding: 16px;
+  background-color: var(--color-background-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--color-border-container);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- ATUALIZADO: Estilo do botão (antiga div) --- */
+.acordeon .question-line {
+  /* Reseta estilos nativos de botão */
+  background: none;
+  border: none;
+  padding: 0;
+  width: 100%;
+  cursor: pointer;
+
+  /* Layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  text-align: left; /* Garante alinhamento à esquerda */
+  font-family: inherit;
+}
+
+/* --- NOVO: Estilo do H3 dentro do botão --- */
+.acordeon .question-line h3 {
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-white);
+  margin: 0; /* Remove margem padrão do H3 */
+}
+
+.acordeon .question-line img {
+  width: 12px;
+  transition: transform 0.3s ease;
+}
+
+.acordeon .question-line img.rotated {
+  transform: rotate(180deg);
+}
+
+/* --- ATUALIZADO: Animação no Container --- */
+.response-container {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.response-container.open {
+  max-height: 500px; /* Altura suficiente para o texto */
+  opacity: 1;
+}
+
+/* --- ATUALIZADO: Estilo do texto da resposta --- */
+.acordeon .response {
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin: 0;
+
+  /* O padding-top simula o margin-top que você usava antes,
+     mas só aparece quando o container abre */
+  padding-top: 24px;
+}
+
+@media screen and (min-width: 480px) {
+  /* Media query vazia mantida do seu código original */
+}
+
+@media screen and (min-width: 786px) {
+  .faq-section {
+    margin-top: 80px;
+    gap: 24px;
+    flex-direction: row;
+  }
+
+  .title-section {
+    font-size: var(--font-size-title-lg);
+  }
+
+  .acordeon {
+    padding: 38px;
+  }
+
+  .acordeon .question-line img {
+    width: 16px;
+  }
+}

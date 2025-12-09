@@ -9,14 +9,10 @@ import { Component } from '@angular/core';
 export class TrustedBrands {
 
   trustedLogoMarkList: string[] = [
-    "assets/logotypes/Braziflon.svg",
+    "assets/logotypes/Rankee_logo.svg",
     "assets/logotypes/NewPower_logo.svg",
+    "assets/logotypes/Gtown_logo.svg",
     "assets/logotypes/Braziflon.svg",
-    "assets/logotypes/NewPower_logo.svg",
-    "assets/logotypes/Braziflon.svg",
-    "assets/logotypes/NewPower_logo.svg",
-    "assets/logotypes/Braziflon.svg",
-    "assets/logotypes/NewPower_logo.svg",
   ]
 
 }
