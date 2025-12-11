@@ -1,0 +1,130 @@
+.cases-section {
+  margin-top: 24px;
+  width: 100%;
+  max-width: 1400px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.title-section {
+  width: 100%;
+  font-size: var(--font-size-title-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-white);
+  text-align: start;
+}
+
+.cases{
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.cases .case{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.cases .case .cases-expec{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cases .case .cases-expec h3{
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-white);
+}
+
+.cases .case .cases-expec h4{
+  font-size: 20px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+.cases .case img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--color-border-container);
+
+  /* ADICIONADO: Prepara a animação */
+  /* transform muda o tamanho, filter muda o brilho (opcional) */
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Garante que a imagem não "vaze" ou fique serrilhada durante a transição */
+  will-change: transform;
+}
+
+/* ADICIONADO: O efeito de Hover */
+.cases .case img:hover {
+  /* Escala para 96% do tamanho original.
+     Isso diminui o container inteiro (borda + imagem)
+     sem mudar o "zoom" da foto dentro da borda. */
+  transform: scale(0.92);
+
+  /* Opcional: Deixar a borda um pouco mais evidente quando diminui */
+}
+
+@media screen and (min-width: 786px) {
+  .cases-section {
+    margin-top: 80px;
+    gap: 48px;
+  }
+
+  .title-section {
+    font-size: var(--font-size-title-lg);
+    text-align: center;
+  }
+
+  .cases {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 1fr é mais limpo que minmax aqui */
+    column-gap: 24px;
+    /* Reduzi um pouco o row-gap original (128px) para o ritmo ficar mais fluido
+       com o deslocamento, mas você pode ajustar conforme o gosto */
+    row-gap: 64px;
+    align-items: start;
+  }
+
+  .cases .case {
+    width: 100%;
+    /* Removemos margens manuais para deixar o Grid controlar o fluxo */
+    margin-top: 0;
+    align-items: start;
+  }
+
+  .cases .case img {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+  }
+
+  /* A Mágica Acontece Aqui */
+  .cases .case:nth-child(even) {
+    /* transform: translateY(50%) move o item para baixo metade da sua própria altura.
+       Isso coloca o topo do item 2 exatamente na metade visual do item 1.
+    */
+    transform: translateY(25%);
+  }
+
+  .cases .case .cases-expec{
+    align-items: flex-start;
+  }
+
+  .cases .case .cases-expec h3{
+    font-size: 32px;
+  }
+
+  .cases .case .cases-expec h4{
+    font-size: 24px;
+  }
+}

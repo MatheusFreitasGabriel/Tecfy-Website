@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importante para *ngIf e mensagens
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-
-// Imports do Core/Shared (Ajuste o caminho se necessário)
 import { LeadService } from '../../core/services/lead.service';
 import { leadRequest } from '../../shared/models/lead.model';
 
@@ -17,7 +15,7 @@ import { leadRequest } from '../../shared/models/lead.model';
 export class Contato implements OnInit {
   contatoForm: FormGroup;
   selectedPlan: string = "Nenhum";
-  
+
   // Variáveis de Estado para Feedback no HTML
   isLoading = false;
   feedbackMessage = '';
@@ -65,15 +63,13 @@ export class Contato implements OnInit {
     // 3. Chamada ao Serviço
     this.leadService.create(requestData).subscribe({
       next: (response) => {
-        console.log('Sucesso:', response);
         this.isLoading = false;
         this.feedbackType = 'success';
         this.feedbackMessage = 'Recebemos seu contato! Em breve retornaremos.';
-        
+
         this.contatoForm.reset(); // Limpa o formulário
       },
       error: (err) => {
-        console.error('Erro:', err);
         this.isLoading = false;
         this.feedbackType = 'error';
 
