@@ -4,7 +4,6 @@ import {NgOptimizedImage} from '@angular/common';
 @Component({
   selector: 'app-cases',
   imports: [
-    NgOptimizedImage
   ],
   templateUrl: './cases.html',
   styleUrl: './cases.css',
