@@ -1,31 +1,60 @@
+/* --- CSS BASE (Mobile First - Scroll Manual) --- */
+
 .depoiments-section {
   margin-top: 24px;
   width: 100%;
   max-width: 1400px;
-  height: fit-content;
+  /* Removemos overflow hidden aqui para permitir que o filho vaze a tela se precisar */
+  /* overflow: hidden;  <-- REMOVIDO */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 24px;
 }
 
 .title-section {
   width: 100%;
-  text-align: start;
   font-size: var(--font-size-title-sm);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-white);
+  text-align: start;
 }
 
 .depoiments {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 24px;
   width: 100%;
 }
 
-/* Agora aplicado à tag <figure> */
+/* O Container do Scroll Manual */
+.scroll-row {
+  display: flex;
+  gap: 16px;
+
+  /* Habilita a rolagem horizontal */
+  overflow-x: auto;
+
+  /* UX Premium: Faz o card "travar" na posição correta ao soltar o dedo */
+  scroll-snap-type: x mandatory;
+
+  /* TRUQUE PARA IR DE BORDA A BORDA (Full Bleed) */
+  width: 100vw; /* Ocupa a largura da tela inteira */
+  margin-left: calc(-50vw + 50%); /* Centraliza forçadamente estourando o pai */
+  margin-right: calc(-50vw + 50%);
+
+  /* Adiciona um respiro interno para o primeiro card não colar na borda esquerda */
+  padding-inline: 24px;
+
+  /* Esconde a barra de rolagem (estética) */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Esconde barra de rolagem no Chrome/Safari */
+.scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
 .depoimento {
   padding: 24px;
   background-color: var(--color-background-secondary);
@@ -34,68 +63,20 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 64px;
-
-  /* Importante: Remove a margem padrão que o navegador coloca na tag <figure> */
+  gap: 24px;
   margin: 0;
+
+  /* Tamanho fixo no mobile */
+  width: 300px; /* Ajuste conforme necessário */
+  min-width: 300px; /* Garante que não encolha */
+
+  /* Ponto de parada do Snap */
+  scroll-snap-align: center; /* ou 'start' se preferir alinhado a esquerda */
 }
 
-/* Novo: Remove margens padrão da tag <blockquote> */
-.quote-text {
-  margin: 0;
-}
 
-/* Estilo do texto do depoimento (dentro do blockquote) */
-.quote-text p {
-  max-height: 112px;
-  text-align: start;
-  font-size: 14px;
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-white);
-}
-
-/* Agora aplicado à tag <figcaption> */
-.people-info {
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
-}
-
-.picture-people {
-  width: 48px;
-  height: 48px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-.people-info-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: start;
-}
-
-/* Agora aplicado ao <span> */
-.people-info-text .name {
-  font-size: 14px;
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-white);
-}
-
-/* Agora aplicado à tag <cite> */
-.people-info-text .function {
-  font-size: 14px;
-  font-weight: var(--font-weight-medium);
+.function{
   color: var(--color-text-secondary);
-
-  /* Importante: Garante que o texto não fique em itálico (padrão do cite) */
-  font-style: normal;
-}
-
-@media screen and (min-width: 480px) {
-  .depoiments {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media screen and (min-width: 786px) {
@@ -107,25 +88,25 @@
   .title-section {
     font-size: var(--font-size-title-lg);
     text-align: center;
+    padding-inline: 0; /* Remove padding extra do mobile */
   }
 
+  /* Grid de 3 colunas */
   .depoiments {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
   }
 
-  .quote-text p {
-    font-size: var(--font-size-text);
+  /* Desativa o scroll e o layout mobile */
+  .scroll-row {
+    display: contents; /* Ignora a DIV wrapper e joga os filhos pro Grid */
   }
 
-  .people-info-text {
-    justify-content: space-around;
-  }
-
-  .people-info-text .name {
-    font-size: var(--font-size-text);
-  }
-
-  .people-info-text .function {
-    font-size: var(--font-size-text);
+  .depoimento {
+    width: auto; /* Volta ao tamanho automático do grid */
+    min-width: 0;
+    gap: 64px;
+    scroll-snap-align: none; /* Remove comportamento de snap no desktop */
   }
 }
