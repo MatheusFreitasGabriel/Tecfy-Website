@@ -1,1 +1,14 @@
-<h1>"Cases"" (Eu estou com preguiça de fazer essa merda então deixa para a proxima ou quando eu tiver vontade)</h1>
+<div class="cases-section">
+  <h2 class="title-section">Nosso trabalho</h2>
+  <div class="cases">
+    @for (cases of casesList; track $index) {
+      <div class="case">
+        <img [src]="cases.exampleImage" [alt]="'Imagem de exemplo do' + cases.projectType + cases.name " width="auto" height="auto">
+        <div class="cases-expec">
+          <h3>{{cases.name}}</h3>
+          <h4>{{cases.projectType}}</h4>
+        </div>
+      </div>
+    }
+  </div>
+</div>

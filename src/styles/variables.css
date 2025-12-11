@@ -16,7 +16,7 @@
 
     --font-size-indicator-lg: 1.25rem;
     --font-size-indicator-sm: 1rem;
-    --font-size-hero-lg: 3rem;
+    --font-size-hero-lg: 3.5rem;
     --font-size-hero-sm: 2rem;
     --font-size-title-lg: 3rem;
     --font-size-title-sm: 1.625rem;
@@ -26,7 +26,7 @@
     --font-size-text-hero-indicator-lg: 1.25rem;
     --font-size-text-hero-indicator-sm: 1rem;
     --font-size-text: 1rem;
-    
+
     --font-family: 'Satoshi', sans-serif;
     --font-weight-regular: 400;
     --font-weight-medium: 500;
@@ -36,7 +36,7 @@
 
 .font-hero{
     font-family: var(--font-family);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-bold);
     font-size: var(--font-size-hero-sm);
     color: var(--color-text-white);
 }

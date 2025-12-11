@@ -1,24 +1,41 @@
 <div class="depoiments-section">
   <h2 class="title-section">O que dizem sobre nós</h2>
-  <div class="depoiments">
-    @for (depoimento of depoiment; track $index) {
-      <div class="depoimento">
-        <blockquote class="quote-text">
-          <p>"{{depoimento.depoimento}}"</p>
-        </blockquote>
 
-        <div class="people-info">
-          <img
-            [src]="depoimento.foto"
-            [alt]="'Foto de ' + depoimento.nomeCliente + ' - ' + depoimento.funcaoEmpresa"
-            class="picture-people"
-            height="50" width="50" >
-          <div class="people-info-text">
-            <p class="name">{{depoimento.nomeCliente}}</p>
-            <cite class="function">{{depoimento.funcaoEmpresa}}</cite>
+  <div class="depoiments">
+    <div class="scroll-row">
+      @for (d of depoiment; track $index) {
+        @if ($index < depoiment.length / 2) {
+          <div class="depoimento">
+            <blockquote class="quote-text">
+              <p>"{{d.depoimento}}"</p>
+            </blockquote>
+            <div class="people-info">
+              <div class="people-info-text">
+                <p class="name">{{d.nomeCliente}}</p>
+                <cite class="function">{{d.funcaoEmpresa}}</cite>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    }
+        }
+      }
+    </div>
+
+    <div class="scroll-row">
+      @for (d of depoiment; track $index) {
+        @if ($index >= depoiment.length / 2) {
+          <div class="depoimento">
+            <blockquote class="quote-text">
+              <p>"{{d.depoimento}}"</p>
+            </blockquote>
+            <div class="people-info">
+              <div class="people-info-text">
+                <p class="name">{{d.nomeCliente}}</p>
+                <cite class="function">{{d.funcaoEmpresa}}</cite>
+              </div>
+            </div>
+          </div>
+        }
+      }
+    </div>
   </div>
 </div>
