@@ -36,8 +36,8 @@ export interface Termo {
   styleUrl: './politica-cookies.css',
 })
 export class PoliticaCookies {
-  titleSection: string = "Termos de Uso";
-  lastUpdateDate: string = "08 de Dez, 2025";
+  titleSection: string = "Política de Cookies";
+  lastUpdateDate: string = "12 de Dez, 2025";
 
   generateId(text: string): string {
     return text
