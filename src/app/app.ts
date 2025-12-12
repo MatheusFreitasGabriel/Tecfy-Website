@@ -4,6 +4,7 @@ import { ViewportScroller } from '@angular/common'; // Importe ViewportScroller
 import { filter } from 'rxjs/operators'; // Importe filter
 import { Header } from './core/components/header/header';
 import { Footer } from './core/components/footer/footer';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,9 @@ export class App implements OnInit {
 
   // 1. Injete o Router e o Scroller no construtor
   constructor(private router: Router, private viewportScroller: ViewportScroller) {
+    injectSpeedInsights({
+      framework: 'angular',
+    });
     this.viewportScroller.scrollToPosition([0, 100]);
   }
 
