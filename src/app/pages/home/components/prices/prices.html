@@ -34,7 +34,7 @@
             <ul>
               @for (projectType of plan.projectTypes; track $index) {
                 <li>
-                  <img src="assets/icons/icon-dot-mark.svg" alt="" aria-hidden="true">
+                  <img ngSrc="assets/icons/icon-dot-mark.svg" alt="" aria-hidden="true" height="6" width="6">
                   <span>{{projectType}}</span>
                 </li>
               }
@@ -48,7 +48,7 @@
             <ul>
               @for (include of plan.include; track $index) {
                 <li>
-                  <img src="assets/icons/icon-check-mark.svg" alt="" aria-hidden="true">
+                  <img ngSrc="assets/icons/icon-check-mark.svg" alt="" aria-hidden="true" height="9" width="10">
                   <span>{{include}}</span>
                 </li>
               }

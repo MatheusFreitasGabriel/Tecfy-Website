@@ -1,9 +1,9 @@
 <div class="trusted-section">
     <p>Veja marcas que confiam no nosso trabalho.</p>
     <div class="list-logos">
-        @for (logos of trustedLogoMarkList; track $index) {
+        @for (logos of trustedLogoMarkList; track logos) {
             <div class="logo">
-                <img [src]="logos" alt="Logotipo de marcas que confiam na Tecfy">
+                <img [ngSrc]="logos" alt="Logotipo de marcas que confiam na Tecfy" fill priority>
             </div>
         }
     </div>

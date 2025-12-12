@@ -4,6 +4,7 @@ import {NgOptimizedImage} from '@angular/common';
 @Component({
   selector: 'app-cases',
   imports: [
+    NgOptimizedImage
   ],
   templateUrl: './cases.html',
   styleUrl: './cases.css',
@@ -14,18 +15,18 @@ export class Cases {
     {
       name: "NewPower",
       projectType: "Ecommerce",
-      exampleImage: "assets/portfolio/newpower_website.png"
+      exampleImage: "assets/portfolio/newpower_website.webp"
     },
 
     {
       name: "Braziflon",
       projectType: "ERP Website",
-      exampleImage: "assets/portfolio/brasiflon_website.png"
+      exampleImage: "assets/portfolio/brasiflon_website.webp"
     },
     {
       name: "Rankee",
       projectType: "App",
-      exampleImage: "assets/portfolio/rankee_app.png"
+      exampleImage: "assets/portfolio/rankee_app.webp"
     },
   ]
 

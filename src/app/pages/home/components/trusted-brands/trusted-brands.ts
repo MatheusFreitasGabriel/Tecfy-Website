@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-trusted-brands',
-  imports: [],
+  imports: [
+    NgOptimizedImage
+  ],
   templateUrl: './trusted-brands.html',
   styleUrl: './trusted-brands.css',
 })

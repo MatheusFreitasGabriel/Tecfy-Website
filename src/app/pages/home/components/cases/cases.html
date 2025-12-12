@@ -3,10 +3,12 @@
   <div class="cases">
     @for (cases of casesList; track $index) {
       <div class="case">
-        <img [src]="cases.exampleImage" [alt]="'Imagem de exemplo do' + cases.projectType + cases.name " width="auto" height="auto">
+        <div class="case-img-wrapper">
+          <img [ngSrc]="cases.exampleImage" [alt]="'Imagem de exemplo do' + cases.projectType + cases.name " fill>
+        </div>
         <div class="cases-expec">
-          <h3>{{cases.name}}</h3>
-          <h4>{{cases.projectType}}</h4>
+          <h3>{{ cases.name }}</h3>
+          <h4>{{ cases.projectType }}</h4>
         </div>
       </div>
     }

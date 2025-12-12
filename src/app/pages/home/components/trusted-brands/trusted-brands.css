@@ -1,53 +1,63 @@
-.trusted-section{
-    width: 100%;
-    max-width: 1400px;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
+.trusted-section {
+  width: 100%;
+  max-width: 1400px;
+  /* height: fit-content; -> Desnecessário em flex containers verticais geralmente, mas pode manter */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
 }
 
 .trusted-section p {
-    font-size: var(--font-size-text);
-    text-align: center;
-    font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-text);
+  text-align: center;
+  font-weight: var(--font-weight-medium);
 }
 
-.list-logos{
-    width: 100%;
-    display: grid;
-    /* Mobile first: 2 colunas por padrão */
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 12px;
-    justify-content: center;
+.list-logos {
+  width: 100%;
+  display: grid;
+  /* Mobile: 2 colunas */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  justify-content: center;
+  /* align-items: center; -> Não necessário pois a altura dos cards será fixa agora */
 }
 
-.logo{
-    background-color: var(--color-background-secondary);
-    border-radius: 12px;
-    border: 1px solid var(--color-border-container);
-    padding: 48px 16px;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-height: 114px;
+.logo {
+  /* CORREÇÃO 1: Segura a imagem (que é absolute) dentro do card */
+  position: relative;
+
+  background-color: var(--color-background-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--color-border-container);
+
+  /* CORREÇÃO 2: Com 'fill', a div pai PRECISA ter altura definida.
+     'fit-content' não funciona porque a imagem flutua e não ocupa espaço físico. */
+  height: 114px;
+  width: 100%;
+  box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
+
+  /* Centralização não é mais necessária com fill + object-fit, mas mal não faz */
+  overflow: hidden; /* Segurança para nada vazar */
 }
 
-.logo img{
-    width: 100%;
-    max-width: 125px;
-    height: auto;
-    object-fit: contain;
+.logo img {
+  position: absolute;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  object-fit: contain;
 }
 
-/* Tablet: 4 colunas (2 linhas) */
+/* Tablet/Desktop: 4 colunas */
 @media screen and (min-width: 768px) {
-    .list-logos{
-        grid-template-columns: repeat(4, 1fr);
-    }
+  .list-logos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .logo img {
+    padding: 24px 86px;
+    object-fit: contain;
+  }
 }

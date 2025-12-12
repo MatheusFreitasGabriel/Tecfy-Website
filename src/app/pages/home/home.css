@@ -1,145 +1,149 @@
-main{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+main {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-section{
-    width: 100%;
-    max-width: 1400px;
-    padding: 24px;
+section {
+  width: 100%;
+  max-width: 1400px;
+  padding: 24px;
 }
 
-.hero-section{
-    height: 100vh;
-    max-width: 1400px;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    gap: 48px;
+.hero-section {
+  height: 100vh;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 48px;
 }
 
-.indicator-hero-section{
-    font-size: var(--font-size-indicator-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-blue);
+.indicator-hero-section {
+  font-size: var(--font-size-indicator-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-blue);
 }
 
-.content-hero-section{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+.content-hero-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.content-hero-section .font-hero{
-    width: 100%;
+.content-hero-section .font-hero {
+  width: 100%;
+  min-height: 160px;
+
 }
 
 .animated-word {
-    color: var(--color-blue);
+  color: var(--color-blue);
 }
 
 .cursor {
-    display: inline-block;
-    animation: blink 1s infinite;
-    color: var(--color-blue);
-    margin-left: 2px;
+  display: inline-block;
+  animation: blink 1s infinite;
+  color: var(--color-blue);
+  margin-left: 2px;
 }
 
 @keyframes blink {
-    0%, 50% {
-        opacity: 1;
-    }
-    51%, 100% {
-        opacity: 0;
-    }
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
 }
 
-.our_products{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+.our_products {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.our_products h2{
-    font-size: var(--font-size-text);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-secondary);
+.our_products h2 {
+  font-size: var(--font-size-text);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
 }
 
-.products{
-    display: flex;
-    flex-direction: row;
-    gap: 24px;
+.products {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
 }
 
-.product{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
+.product {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
 }
 
-.product span{
-    width: 8px;
-    height: 12px;
-    background-color: var(--color-white);
+.product span {
+  width: 8px;
+  height: 12px;
+  background-color: var(--color-white);
 }
 
-.product h3{
-    font-size: 14px;
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-white);
+.product h3 {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-white);
 
 }
 
-.final-cta{
-    width: 100%;
-    background-color: var(--color-background-secondary);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 128px 24px;
-    gap: 24px;
+.final-cta {
+  width: 100%;
+  background-color: var(--color-background-secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 128px 24px;
+  gap: 24px;
 }
 
-.title-final-cta{
-    font-size: var(--font-size-title-sm);
-    font-weight: var(--font-weight-medium);
+.title-final-cta {
+  font-size: var(--font-size-title-sm);
+  font-weight: var(--font-weight-medium);
 }
 
 
 @media screen and (min-width: 786px) {
-    .hero-section{
-        gap: 42px;
-    }
+  .hero-section {
+    min-height: 100vh;
+    gap: 42px;
+  }
 
-    .indicator-hero-section{
-        font-size: var(--font-size-indicator-lg);
-    }
+  .indicator-hero-section {
+    font-size: var(--font-size-indicator-lg);
+  }
 
-    .content-hero-section .font-hero{
-        width: 75%;
-    }
+  .content-hero-section .font-hero {
+    width: 80%;
+    min-height: 160px;
+  }
 
-    .our_products h2{
-        font-size: 20px;
-    }
+  .our_products h2 {
+    font-size: 20px;
+  }
 
-    .product h3{
-        font-size: 20px;
-    }
+  .product h3 {
+    font-size: 20px;
+  }
 
-    .final-cta{
-        gap: 48px;
-    }
+  .final-cta {
+    gap: 48px;
+  }
 
-    .title-final-cta{
-        font-size: 64px;
-    }
+  .title-final-cta {
+    font-size: 64px;
+  }
 }
