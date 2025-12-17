@@ -22,7 +22,12 @@
               },
               "src/assets",
               "src/favicon.ico",
-              "src/robots.txt"
+              "src/robots.txt",
+              {
+                "glob": "sitemap.xml",
+                "input": "src/assets/",
+                "output": "/"
+              }
             ],
             "styles": [
               "src/styles/styles.css"
