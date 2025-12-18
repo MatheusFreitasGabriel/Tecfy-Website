@@ -21,7 +21,7 @@
                 "input": "public"
               },
               "src/assets",
-              "src/favicon.ico",
+              "src/favicon",
               "src/robots.txt",
               {
                 "glob": "sitemap.xml",

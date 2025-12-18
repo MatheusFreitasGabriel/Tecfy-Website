@@ -6,7 +6,7 @@ import { TermosDeUso } from './pages/termos-de-uso/termos-de-uso';
 import { PoliticaCookies } from './pages/politica-cookies/politica-cookies';
 
 export const routes: Routes = [
-    {path: '', component: Home, title: 'Tecfy'},
+    {path: '', component: Home, title: 'Tecfy | Criação de Sites, Apps e IA'},
     {path: 'contato', component: Contato, title: 'Entre em Contato | Tecfy'},
     {path: 'politica-de-privacidade', component: PoliticaPrivacidade, title: 'Política de Privacidade | Tecfy'},
     {path: 'termos-de-uso', component: TermosDeUso, title: 'Termos de Uso | Tecfy'},
