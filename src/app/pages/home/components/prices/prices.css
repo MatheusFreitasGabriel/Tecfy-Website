@@ -136,7 +136,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 36px;
+  margin-bottom: 12px;
 }
 
 /* Atualizado: Agora foca no strong */
@@ -205,6 +205,9 @@
   .plans {
     grid-template-columns: repeat(2, 1fr);
   }
+  .plan:last-child {
+    grid-column: span 2;
+  }
 }
 
 @media screen and (min-width: 786px) {
@@ -225,5 +228,10 @@
 
   .plans {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .plan:nth-last-child(1),
+  .plan:nth-last-child(2) {
+    grid-column: span 2;
   }
 }

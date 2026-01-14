@@ -16,10 +16,28 @@ export class Prices {
 
   plans = [
     {
+      name: "Landing",
+      recommended: false,
+      montly: true,
+      price: "647",
+      projectTypes: [
+        "Landing Page"
+      ],
+      titleInclude: "Incluso:",
+      include: [
+        "Página única de alta conversão.",
+        "Design focado em Copywriting.",
+        "Otimização de SEO e Velocidade.",
+        "Integração com WhatsApp/CRM.",
+        "Manutenção e suporte técnico."
+      ],
+      textCta: "Assinar Landing"
+    },
+    {
       name: "Starter",
       recommended: false,
       montly: true,
-      price: "2500",
+      price: "2.709",
       projectTypes: [
         "Website",
         "Software"
@@ -39,7 +57,7 @@ export class Prices {
       name: "Pro",
       recommended: true,
       montly: true,
-      price: "5000",
+      price: "5.417",
       projectTypes: [
         "Website ou Software",
         "Aplicativo (Android, IOS)"
@@ -58,7 +76,7 @@ export class Prices {
       name: "Ultimate",
       recommended: false,
       montly: true,
-      price: "12500",
+      price: "14.542",
       projectTypes: [
         "Todas as plataformas.",
         "Inteligência Artificial."
@@ -71,6 +89,24 @@ export class Prices {
         "Franquia de recursos (R$1250/mês)."
       ],
       textCta: "Assinar Ultimate"
+    },
+    {
+      name: "Startup",
+      recommended: false,
+      montly: false,
+      price: "Sob Consulta",
+      projectTypes: [
+        "MVP Ágil",
+        "SaaS Escalável"
+      ],
+      titleInclude: "Diferenciais:",
+      include: [
+        "Desenvolvimento focado em Time-to-Market.",
+        "3 meses de Hyper-care (suporte pós-lançamento).", // O benefício que o Equity não tem
+        "Mentoria técnica para Pitch e Fundraising.",
+        "Propriedade total do código-fonte."
+      ],
+      textCta: "Validar minha Ideia"
     },
     {
       name: "Equity",
